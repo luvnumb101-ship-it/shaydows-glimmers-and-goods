@@ -1,0 +1,21 @@
+/* Hide Wix branding elements */
+.wix-ads-2,
+[data-hook="wix-ads"],
+.wix-banners,
+#WIX_ADS,
+.upgrade-banner-container {
+    display: none !important;
+}
+
+/* Hide upgrade button */
+[data-hook="upgrade-button"],
+.upgrade-button,
+.premium-link {
+    display: none !important;
+}
+
+/* Remove margin/padding that might be added for ads */
+body {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
