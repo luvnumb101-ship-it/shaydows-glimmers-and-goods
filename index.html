@@ -3,120 +3,789 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shaydow's Glimmers & Goods</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
+    <title>Shaydow's Glimmers and Goods</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Enhanced Cursive/Elegant Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Dancing+Script:wght@400;600;700&family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
+    
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        /* Elegant color scheme inspired by cottagecore, dark academia, Victorian era */
         :root {
-            --cream: #f5f1e8;
-            --deep-plum: #5a2a4a;
-            --charcoal: #2a2a2a;
-            --sage: #8a9a7e;
-            --gold: #b8956a;
-            --shadow: rgba(0, 0, 0, 0.2);
+            --color-primary: #1a1410;
+            --color-secondary: #2d2419;
+            --color-accent: #8b6f47;
+            --color-accent-2: #5a2a4a;
+            --color-text-light: #f5f1e8;
+            --color-green: #4a5d3f;
+            --color-plum: #6b4665;
+            --color-gold: #b8956a;
         }
-
+        
         body {
             font-family: 'Cormorant Garamond', serif;
-            background-color: var(--cream);
-            color: var(--charcoal);
-            line-height: 1.7;
-            overflow-x: hidden;
+            background-color: var(--color-primary);
+            color: var(--color-text-light);
+            scroll-behavior: smooth;
         }
 
         h1, h2, h3 {
-            font-family: 'Playfair Display', serif;
-            font-weight: 600;
-        }
-
-        .cursive {
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-        }
-
-        /* Header */
-        header {
-            background: linear-gradient(135deg, var(--deep-plum) 0%, var(--charcoal) 100%);
-            color: var(--cream);
-            padding: 2rem 0;
-            text-align: center;
-            border-bottom: 3px solid var(--gold);
-            box-shadow: 0 4px 6px var(--shadow);
-        }
-
-        .logo-container {
-            max-width: 200px;
-            margin: 0 auto 1rem;
-        }
-
-        .logo-container img {
-            width: 100%;
-            height: auto;
-            border-radius: 50%;
-            border: 4px solid var(--gold);
-            box-shadow: 0 6px 12px var(--shadow);
-        }
-
-        header h1 {
-            font-size: 3rem;
-            margin-bottom: 0.5rem;
-            letter-spacing: 2px;
             font-family: 'Cinzel', serif;
         }
 
-        header .tagline {
-            font-size: 1.3rem;
-            font-style: italic;
-            color: var(--gold);
-            margin-top: 0.5rem;
-        }
-
-        /* Navigation */
-        nav {
-            background-color: var(--charcoal);
-            padding: 1rem 0;
-            box-shadow: 0 2px 4px var(--shadow);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-            flex-wrap: wrap;
-        }
-
-        nav a {
-            color: var(--cream);
-            text-decoration: none;
-            font-size: 1.2rem;
+        .cursive-text {
             font-family: 'Playfair Display', serif;
-            transition: color 0.3s ease, transform 0.3s ease;
-            display: inline-block;
+            font-style: italic;
         }
 
-        nav a:hover {
-            color: var(--gold);
-            transform: translateY(-2px);
+        .script-text {
+            font-family: 'Dancing Script', cursive;
         }
 
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(42, 42, 42, 0.6), rgba(90, 42, 74, 0.6)),
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%238a9a7e" width="1200" height="600"/></svg>');
-            background-size: cover;
-            background-position: center;
-            color: var(--cream);
-            padding: 6rem 2rem;
+        .elegant-script {
+            font-family: 'Tangerine', cursive;
+        }
+
+        .shadow-glow {
+            box-shadow: 0 0 20px rgba(139, 111, 71, 0.4);
+        }
+
+        .product-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7), 0 0 18px var(--color-accent);
+        }
+
+        .cta-button {
+            transition: background-color 0.3s, transform 0.1s;
+        }
+        .cta-button:hover {
+            background-color: #9d7f50;
+            transform: translateY(-1px);
+        }
+        
+        .product-card-bg {
+             background-color: rgba(45, 36, 25, 0.8);
+        }
+
+        /* Gallery Slideshow Styles */
+        .gallery-slide {
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+        .gallery-slide.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .gallery-thumbnail {
+            cursor: pointer;
+            transition: transform 0.2s, opacity 0.2s;
+            opacity: 0.6;
+        }
+        .gallery-thumbnail:hover,
+        .gallery-thumbnail.active {
+            transform: scale(1.05);
+            opacity: 1;
+            border: 2px solid var(--color-accent);
+        }
+
+        /* Grid Gallery Styles */
+        .gallery-grid-item {
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        .gallery-grid-item img {
+            transition: transform 0.3s ease;
+        }
+        .gallery-grid-item:hover img {
+            transform: scale(1.1);
+        }
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(26, 20, 16, 0.95), transparent);
+            padding: 1rem;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        .gallery-grid-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        /* Decorative borders and ornaments */
+        .ornate-border {
+            border: 2px solid var(--color-gold);
+            border-radius: 8px;
+            position: relative;
+        }
+
+        .ornate-border::before,
+        .ornate-border::after {
+            content: '✦';
+            position: absolute;
+            color: var(--color-gold);
+            font-size: 1.5rem;
+        }
+
+        .ornate-border::before {
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .ornate-border::after {
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Glimmers section styling */
+        .glimmer-card {
+            background: linear-gradient(135deg, rgba(90, 42, 74, 0.2), rgba(74, 93, 63, 0.2));
+            border: 1px solid var(--color-plum);
+            backdrop-filter: blur(10px);
+        }
+
+        .glimmer-card:hover {
+            border-color: var(--color-gold);
+            box-shadow: 0 8px 24px rgba(184, 149, 106, 0.3);
+        }
+
+        /* Victorian-inspired dividers */
+        .divider {
+            display: flex;
+            align-items: center;
             text-align: center;
-        <span class="ml-2" /><span class="inline-block w-3 h-3 rounded-full bg-neutral-a12 align-middle mb-[0.1rem]" />
+            margin: 3rem 0;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid var(--color-gold);
+            opacity: 0.5;
+        }
+
+        .divider::before {
+            margin-right: 1rem;
+        }
+
+        .divider::after {
+            margin-left: 1rem;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Navigation Bar -->
+    <header class="sticky top-0 z-50 bg-opacity-95 backdrop-blur-sm" style="background-color: var(--color-primary);">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo/Store Name -->
+                <a href="#" class="text-2xl font-bold tracking-wider script-text flex items-center gap-2" style="color: var(--color-accent);">
+                    Shaydow's Glimmers & Goods
+                </a>
+
+                <!-- Desktop Menu -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-lg cursive-text hover:text-gray-300 transition duration-300">Home</a>
+                    <a href="#glimmers" class="text-lg cursive-text hover:text-gray-300 transition duration-300">Glimmers Photography</a>
+                    <a href="#goods" class="text-lg cursive-text hover:text-gray-300 transition duration-300">Handmade Goods</a>
+                    <a href="#gallery" class="text-lg cursive-text hover:text-gray-300 transition duration-300">Gallery</a>
+                    <a href="#about" class="text-lg cursive-text hover:text-gray-300 transition duration-300">Our Story</a>
+                    <a href="#contact" class="text-lg cursive-text hover:text-gray-300 transition duration-300">Contact</a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="md:hidden p-2 rounded-md hover:bg-opacity-20 transition" style="color: var(--color-accent);">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden" style="background-color: var(--color-secondary);">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col items-center">
+                <a href="#home" class="block py-2 text-center text-base font-medium cursive-text hover:bg-opacity-30 rounded-md w-full">Home</a>
+                <a href="#glimmers" class="block py-2 text-center text-base font-medium cursive-text hover:bg-opacity-30 rounded-md w-full">Glimmers Photography</a>
+                <a href="#goods" class="block py-2 text-center text-base font-medium cursive-text hover:bg-opacity-30 rounded-md w-full">Handmade Goods</a>
+                <a href="#gallery" class="block py-2 text-center text-base font-medium cursive-text hover:bg-opacity-30 rounded-md w-full">Gallery</a>
+                <a href="#about" class="block py-2 text-center text-base font-medium cursive-text hover:bg-opacity-30 rounded-md w-full">Our Story</a>
+                <a href="#contact" class="block py-2 text-center text-base font-medium cursive-text hover:bg-opacity-30 rounded-md w-full">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- 1. Hero Section -->
+        <section id="home" class="relative overflow-hidden flex items-center justify-center min-h-[85vh] text-center p-8" style="background-color: var(--color-secondary);">
+            <div class="absolute inset-0 opacity-20" style="background: radial-gradient(circle at 50% 10%, var(--color-accent), transparent 60%);"></div>
+
+            <div class="relative max-w-4xl z-10 space-y-6">
+                <h1 class="text-5xl sm:text-7xl font-extrabold tracking-tight leading-tight">
+                    <span class="elegant-script text-6xl sm:text-8xl block mb-4" style="color: var(--color-gold);">Shaydow's</span>
+                    <span class="shadow-glow" style="color: var(--color-accent);">Glimmers & Goods</span>
+                </h1>
+                <p class="text-2xl sm:text-3xl cursive-text font-light max-w-3xl mx-auto opacity-90">
+                    Where moments of joy are captured through the lens, and treasures are crafted by hand with love and intention
+                </p>
+                <div class="divider">
+                    <span style="color: var(--color-gold);">✦</span>
+                </div>
+                <p class="text-xl cursive-text opacity-80">
+                    In loving memory of our beloved black cat, whose gentle presence guides every creation
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+                    <a href="#glimmers" class="inline-block px-10 py-4 text-xl font-semibold rounded-full cta-button shadow-glow" style="background-color: var(--color-accent); color: var(--color-text-light);">
+                        <span class="cursive-text">Discover Glimmers</span>
+                    </a>
+                    <a href="#goods" class="inline-block px-10 py-4 text-xl font-semibold rounded-full border-2 hover:bg-opacity-10 transition duration-300" style="border-color: var(--color-accent); color: var(--color-accent);">
+                        <span class="cursive-text">Explore Goods</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Glimmers Photography Section -->
+        <section id="glimmers" class="py-20 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-5xl font-bold mb-4" style="color: var(--color-gold);">Glimmers Photography</h2>
+                    <p class="text-2xl cursive-text opacity-90 mb-4">Capturing the opposite of triggers</p>
+                    <div class="divider max-w-md mx-auto">
+                        <span style="color: var(--color-gold);">✦</span>
+                    </div>
+                    <p class="text-xl max-w-3xl mx-auto mt-6 leading-relaxed">
+                        <span class="cursive-text">Glimmers are those micro-moments of goodness that make your nervous system feel safe, peaceful, and connected. They are the antithesis of triggers—gentle reminders that beauty and serenity exist all around us. Through my lens, I seek to preserve these precious instances of calm and comfort.</span>
+                    </p>
+                </div>
+
+                <!-- What Are Glimmers -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+                    <div class="glimmer-card rounded-2xl p-8 space-y-4">
+                        <h3 class="text-2xl font-semibold text-center" style="color: var(--color-gold);">Mental Health Focus</h3>
+                        <p class="text-lg cursive-text leading-relaxed">Every photograph is created with intentionality and care, designed to serve as a visual anchor during difficult moments. These images offer solace, grounding, and a reminder of the world's quiet kindnesses.</p>
+                    </div>
+                    
+                    <div class="glimmer-card rounded-2xl p-8 space-y-4">
+                        <h3 class="text-2xl font-semibold text-center" style="color: var(--color-gold);">Cozy Vibes</h3>
+                        <p class="text-lg cursive-text leading-relaxed">Drawing inspiration from cottagecore warmth, goblincore earthiness, dark academia elegance, and Victorian refinement, each image tells a story of beauty found in the overlooked and comfort in the familiar.</p>
+                    </div>
+                    
+                    <div class="glimmer-card rounded-2xl p-8 space-y-4">
+                        <h3 class="text-2xl font-semibold text-center" style="color: var(--color-gold);">Healing Through Beauty</h3>
+                        <p class="text-lg cursive-text leading-relaxed">Photography becomes a therapeutic tool—a collection of moments to return to when you need peace, a visual sanctuary that reminds you of safety, connection, and the gentle rhythms of life.</p>
+                    </div>
+                </div>
+
+                <!-- Photography Services -->
+                <div class="ornate-border p-12 mb-16" style="background-color: var(--color-secondary);">
+                    <h3 class="text-4xl font-bold text-center mb-12" style="color: var(--color-gold);">
+                        <span class="cursive-text">Photography Services</span>
+                    </h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <!-- Service 1 -->
+                        <div class="space-y-3">
+                            <h4 class="text-2xl font-semibold cursive-text" style="color: var(--color-accent);">Personal Glimmers Sessions</h4>
+                            <p class="text-lg leading-relaxed">Intimate photography sessions focused on capturing your personal moments of peace and joy. Perfect for creating a collection of comforting images for difficult days. Each session is tailored to your unique sources of comfort.</p>
+                        </div>
+
+                        <!-- Service 2 -->
+                        <div class="space-y-3">
+                            <h4 class="text-2xl font-semibold cursive-text" style="color: var(--color-accent);">Sanctuary Spaces</h4>
+                            <p class="text-lg leading-relaxed">Documentation of your cozy corners and safe spaces—those places where you feel most at ease. Celebrating the environments that nurture your wellbeing, from reading nooks to garden retreats.</p>
+                        </div>
+
+                        <!-- Service 3 -->
+                        <div class="space-y-3">
+                            <h4 class="text-2xl font-semibold cursive-text" style="color: var(--color-accent);">Nature's Gentle Moments</h4>
+                            <p class="text-lg leading-relaxed">Capturing the quiet beauty of the natural world—morning light through leaves, wildflowers in meadows, the stillness of forest paths. Nature's way of offering us glimmers in every season.</p>
+                        </div>
+
+                        <!-- Service 4 -->
+                        <div class="space-y-3">
+                            <h4 class="text-2xl font-semibold cursive-text" style="color: var(--color-accent);">Seasonal Collections</h4>
+                            <p class="text-lg leading-relaxed">Curated photography sessions celebrating the changing seasons and their unique comforts—autumn's golden light, winter's quiet stillness, spring's gentle renewal, summer's warm embrace.</p>
+                        </div>
+                    </div>
+
+                    <div class="text-center mt-12">
+                        <a href="#contact" class="inline-block px-10 py-4 text-xl font-semibold rounded-full cta-button shadow-glow cursive-text" style="background-color: var(--color-accent); color: var(--color-text-light);">
+                            Book Your Session
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Aesthetic Inspirations -->
+                <div class="text-center">
+                    <h3 class="text-3xl font-semibold mb-6 cursive-text" style="color: var(--color-gold);">Aesthetic Inspirations</h3>
+                    <div class="flex flex-wrap justify-center gap-4">
+                        <span class="px-6 py-3 rounded-full border-2 text-lg cursive-text" style="border-color: var(--color-plum); color: var(--color-plum);">Cottagecore</span>
+                        <span class="px-6 py-3 rounded-full border-2 text-lg cursive-text" style="border-color: var(--color-green); color: var(--color-green);">Goblincore</span>
+                        <span class="px-6 py-3 rounded-full border-2 text-lg cursive-text" style="border-color: var(--color-accent-2); color: var(--color-accent-2);">Dark Academia</span>
+                        <span class="px-6 py-3 rounded-full border-2 text-lg cursive-text" style="border-color: var(--color-gold); color: var(--color-gold);">Victorian Elegance</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Handmade Goods Section -->
+        <section id="goods" class="py-20 px-4 sm:px-6 lg:px-8" style="background-color: var(--color-secondary);">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-5xl font-bold mb-4" style="color: var(--color-gold);">Handmade Goods</h2>
+                    <p class="text-2xl cursive-text opacity-90 mb-4">Thoughtfully crafted treasures for your home and heart</p>
+                    <div class="divider max-w-md mx-auto">
+                        <span style="color: var(--color-gold);">✦</span>
+                    </div>
+                    <p class="text-xl max-w-3xl mx-auto mt-6 cursive-text leading-relaxed">
+                        Every item made with care and intention, from our cottage kitchen to your sanctuary
+                    </p>
+                </div>
+
+                <!-- Featured Goods -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+                    
+                    <!-- Featured Item 1 -->
+                    <div class="product-card-bg rounded-2xl overflow-hidden shadow-glow">
+                        <div class="grid md:grid-cols-2 gap-0">
+                            <img src="https://images.unsplash.com/photo-1599785209707-a456fc1337bb?w=600&h=600&fit=crop" alt="Wildberry Jam" class="w-full h-full object-cover">
+                            <div class="p-8 flex flex-col justify-center space-y-4">
+                                <h3 class="text-3xl font-bold cursive-text" style="color: var(--color-gold);">Midnight Wildberry Preserve</h3>
+                                <p class="text-lg text-gray-300 leading-relaxed">Handpicked berries gathered under moonlight, simmered with organic sugar and whispered blessings. Each jar sealed with intention and care.</p>
+                                <div class="space-y-2 text-sm text-gray-400 cursive-text">
+                                    <p>Small batch—only twelve jars per week</p>
+                                    <p>No preservatives or artificial ingredients</p>
+                                    <p>Eight ounce glass jar with wax seal</p>
+                                    <p>Perfect on toast, scones, or by the spoonful</p>
+                                </div>
+                                <p class="text-4xl font-bold" style="color: var(--color-gold);">$12.00</p>
+                                <button class="w-full py-3 rounded-lg text-lg font-semibold cta-button cursive-text" style="background-color: var(--color-accent); color: var(--color-text-light);">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Featured Item 2 -->
+                    <div class="product-card-bg rounded-2xl overflow-hidden shadow-glow">
+                        <div class="grid md:grid-cols-2 gap-0">
+                            <img src="https://images.unsplash.com/photo-1607920591413-4ec007e70023?w=600&h=600&fit=crop" alt="Fudge Brownies" class="w-full h-full object-cover">
+                            <div class="p-8 flex flex-col justify-center space-y-4">
+                                <h3 class="text-3xl font-bold cursive-text" style="color: var(--color-gold);">Scholar's Dark Chocolate Brownies</h3>
+                                <p class="text-lg text-gray-300 leading-relaxed">Rich, fudgy brownies perfect for late-night study sessions or cozy afternoons with a good book. Made with premium dark chocolate and a hint of espresso.</p>
+                                <div class="space-y-2 text-sm text-gray-400 cursive-text">
+                                    <p>Box of six generous squares</p>
+                                    <p>Optional walnuts or plain</p>
+                                    <p>Baked fresh to order</p>
+                                    <p>Stays fresh for five days, if they last</p>
+                                </div>
+                                <p class="text-4xl font-bold" style="color: var(--color-gold);">$18.00</p>
+                                <button class="w-full py-3 rounded-lg text-lg font-semibold cta-button cursive-text" style="background-color: var(--color-accent); color: var(--color-text-light);">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- All Goods Grid -->
+                <h3 class="text-4xl font-bold text-center mb-12 cursive-text" style="color: var(--color-gold);">Our Complete Collection</h3>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    
+                    <!-- Product 1 -->
+                    <div class="product-card product-card-bg rounded-xl overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1587049352846-4a222e784d38?w=400&h=300&fit=crop" alt="Raw Honey" class="w-full h-56 object-cover">
+                        <div class="p-6 space-y-2">
+                            <h3 class="text-2xl font-semibold cursive-text" style="color: var(--color-gold);">Golden Hour Honey</h3>
+                            <p class="text-base text-gray-300 leading-relaxed">Raw, unfiltered honey from local apiaries. Liquid gold captured in a jar.</p>
+                            <p class="text-3xl font-bold mt-2" style="color: var(--color-gold);">$14.00</p>
+                            <button class="w-full mt-4 py-2 rounded-lg text-base font-medium cta-button cursive-text" style="background-color: var(--color-accent); color: var(--color-text-light);">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <!-- Product 2 -->
+                    <div class="product-card product-card-bg rounded-xl overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=400&h=300&fit=crop" alt="Cookies" class="w-full h-56 object-cover">
+                        <div class="p-6 space-y-2">
+                            <h3 class="text-2xl font-semibold cursive-text" style="color: var(--color-gold);">Classic Comfort Cookies</h3>
+                            <p class="text-base text-gray-300 leading-relaxed">Chocolate chip cookies with sea salt. One dozen per box.</p>
+                            <p class="text-3xl font-bold mt-2" style="color: var(--color-gold);">$15.00</p>
+                            <button class="w-full mt-4 py-2 rounded-lg text-base font-medium cta-button cursive-text" style="background-color: var(--color-accent); color: var(--color-text-light);">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <!-- Product 3 -->
+                    <div class="product-card product-card-bg rounded-xl overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=400&h=300&fit=crop" alt="Herbal Oil" class="w-full h-56 object-cover">
+                        <div class="p-6 space-y-2">
+                            <h3 class="text-2xl font-semibold cursive-text" style="color: var(--color-gold);">Garden Herb Infusion</h3>
+                            <p class="text-base text-gray-300 leading-relaxed">Olive oil infused with rosemary, thyme, and garlic from our garden.</p>
+                            <p class="text-3xl font-bold mt-2" style="color: var(--color-gold);">$16.50</p>
+                            <button class="w-full mt-4 py-2 rounded-lg text-base font-medium cta-button cursive-text" style="background-color: var(--color-accent); color: var(--color-text-light);">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <!-- Product 4 -->
+                    <div class="product-card product-card-bg rounded-xl overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1535920527002-b35e96722eb9?w=400&h=300&fit=crop" alt="Apple Pie" class="w-full h-56 object-cover">
+                        <div class="p-6 space-y-2">
+                            <h3 class="text-2xl font-semibold cursive-text" style="color: var(--color-gold);">Autumn Orchard Pie</h3>
+                            <p class="text-base text-gray-300 leading-relaxed">Traditional apple pie with cinnamon and butter crust. Made to order.</p>
+                            <p class="text-3xl font-bold mt-2" style="color: var(--color-gold);">$28.00</p>
+                            <button class="w-full mt-4 py-2 rounded-lg text-base font-medium cta-button cursive-text" style="background-color: var(--color-accent); color: var(--color-text-light);">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <!-- Product 5 -->
+                    <div class="product-card product-card-bg rounded-xl overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1619361266747-c7e0c79a0dcd?w=400&h=300&fit=crop" alt="Strawberry Jam" class="w-full h-56 object-cover">
+                        <div class="p-6 space-y-2">
+                            <h3 class="text-2xl font-semibold cursive-text" style="color: var(--color-gold);">Summer Strawberry Preserve</h3>
+                            <p class="text-base text-gray-300 leading-relaxed">Sweet strawberry jam from organic berries. Limited batches.</p>
+                            <p class="text-3xl font-bold mt-2" style="color: var(--color-gold);">$11.00</p>
+                            <button class="w-full mt-4 py-2 rounded-lg text-base font-medium cta-button cursive-text" style="background-color: var(--color-accent); color: var(--color-text-light);">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <!-- Product 6 -->
+                    <div class="product-card product-card-bg rounded-xl overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=400&h=300&fit=crop" alt="Oatmeal Cookies" class="w-full h-56 object-cover">
+                        <div class="p-6 space-y-2">
+                            <h3 class="text-2xl font-semibold cursive-text" style="color: var(--color-gold);">Wanderer's Oat Cakes</h3>
+                            <p class="text-base text-gray-300 leading-relaxed">Hearty oatmeal cookies with raisins and nutmeg. Perfect sustenance.</p>
+                            <p class="text-3xl font-bold mt-2" style="color: var(--color-gold);">$14.00</p>
+                            <button class="w-full mt-4 py-2 rounded-lg text-base font-medium cta-button cursive-text" style="background-color: var(--color-accent); color: var(--color-text-light);">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <!-- Product 7 -->
+                    <div class="product-card product-card-bg rounded-xl overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1605807646983-377bc5a76493?w=400&h=300&fit=crop" alt="Lemon Curd" class="w-full h-56 object-cover">
+                        <div class="p-6 space-y-2">
+                            <h3 class="text-2xl font-semibold cursive-text" style="color: var(--color-gold);">Sunlight Lemon Curd</h3>
+                            <p class="text-base text-gray-300 leading-relaxed">Tangy, creamy lemon curd. Delightful on everything or nothing at all.</p>
+                            <p class="text-3xl font-bold mt-2" style="color: var(--color-gold);">$13.00</p>
+                            <button class="w-full mt-4 py-2 rounded-lg text-base font-medium cta-button cursive-text" style="background-color: var(--color-accent); color: var(--color-text-light);">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <!-- Product 8 -->
+                    <div class="product-card product-card-bg rounded-xl overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1587241321921-91ece0707ea2?w=400&h=300&fit=crop" alt="Pecan Pie" class="w-full h-56 object-cover">
+                        <div class="p-6 space-y-2">
+                            <h3 class="text-2xl font-semibold cursive-text" style="color: var(--color-gold);">Fireside Pecan Pie</h3>
+                            <p class="text-base text-gray-300 leading-relaxed">Rich pecan pie with maple syrup and buttery crust. Pure comfort.</p>
+                            <p class="text-3xl font-bold mt-2" style="color: var(--color-gold);">$30.00</p>
+                            <button class="w-full mt-4 py-2 rounded-lg text-base font-medium cta-button cursive-text" style="background-color: var(--color-accent); color: var(--color-text-light);">Add to Cart</button>
+                        </div>
+                    </div>
+
+                </div>
+                
+                <div class="text-center mt-16">
+                    <a href="#" class="inline-block px-8 py-3 text-xl font-semibold rounded-full border-2 shadow-glow hover:bg-opacity-10 transition duration-300 cursive-text" style="border-color: var(--color-gold); color: var(--color-gold);">
+                        View Complete Menu
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Photo Gallery Section -->
+        <section id="gallery" class="py-20 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-5xl font-bold mb-4" style="color: var(--color-gold);">Gallery</h2>
+                    <p class="text-2xl cursive-text opacity-90">Glimpses into our world of glimmers and handcrafted treasures</p>
+                    <div class="divider max-w-md mx-auto mt-6">
+                        <span style="color: var(--color-gold);">✦</span>
+                    </div>
+                </div>
+
+                <!-- Slideshow Gallery -->
+                <div class="mb-20">
+                    <h3 class="text-3xl font-semibold text-center mb-8 cursive-text" style="color: var(--color-gold);">Featured Moments</h3>
+                    <div class="max-w-4xl mx-auto">
+                        <div class="relative rounded-2xl overflow-hidden shadow-glow ornate-border" style="background-color: var(--color-secondary);">
+                            <!-- Slide 1 -->
+                            <div class="gallery-slide active">
+                                <img src="https://images.unsplash.com/photo-1529778873920-4da4926a72c2?w=800&h=500&fit=crop" alt="Black Cat" class="w-full h-96 object-cover">
+                                <div class="p-6 text-center">
+                                    <h4 class="text-2xl font-bold mb-2 cursive-text" style="color: var(--color-gold);">In Memory of Shaydow</h4>
+                                    <p class="text-lg text-gray-300 cursive-text">Our beloved companion whose spirit guides every creation</p>
+                                </div>
+                            </div>
+                            <!-- Slide 2 -->
+                            <div class="gallery-slide">
+                                <img src="https://images.unsplash.com/photo-1556040220-4096d522378d?w=800&h=500&fit=crop" alt="Baking" class="w-full h-96 object-cover">
+                                <div class="p-6 text-center">
+                                    <h4 class="text-2xl font-bold mb-2 cursive-text" style="color: var(--color-gold);">Fresh from the Oven</h4>
+                                    <p class="text-lg text-gray-300 cursive-text">Morning light and the warmth of something baking—a perfect glimmer</p>
+                                </div>
+                            </div>
+                            <!-- Slide 3 -->
+                            <div class="gallery-slide">
+                                <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=800&h=500&fit=crop" alt="Garden" class="w-full h-96 object-cover">
+                                <div class="p-6 text-center">
+                                    <h4 class="text-2xl font-bold mb-2 cursive-text" style="color: var(--color-gold);">Our Cottage Garden</h4>
+                                    <p class="text-lg text-gray-300 cursive-text">Where we grow herbs, berries, and flowers with intention</p>
+                                </div>
+                            </div>
+                            <!-- Slide 4 -->
+                            <div class="gallery-slide">
+                                <img src="https://images.unsplash.com/photo-1587049633312-d628ae50a8ae?w=800&h=500&fit=crop" alt="Jars" class="w-full h-96 object-cover">
+                                <div class="p-6 text-center">
+                                    <h4 class="text-2xl font-bold mb-2 cursive-text" style="color: var(--color-gold);">Sealed with Love</h4>
+                                    <p class="text-lg text-gray-300 cursive-text">Each jar wax-sealed and labeled by hand</p>
+                                </div>
+                            </div>
+
+                            <!-- Navigation -->
+                            <button onclick="changeSlide(-1)" class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-75 text-white p-3 rounded-full transition">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                            </button>
+                            <button onclick="changeSlide(1)" class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-75 text-white p-3 rounded-full transition">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                            </button>
+                        </div>
+
+                        <!-- Thumbnails -->
+                        <div class="flex justify-center gap-4 mt-6">
+                            <img src="https://images.unsplash.com/photo-1529778873920-4da4926a72c2?w=100&h=100&fit=crop" onclick="goToSlide(0)" class="gallery-thumbnail active w-20 h-20 object-cover rounded-lg" alt="Thumbnail 1">
+                            <img src="https://images.unsplash.com/photo-1556040220-4096d522378d?w=100&h=100&fit=crop" onclick="goToSlide(1)" class="gallery-thumbnail w-20 h-20 object-cover rounded-lg" alt="Thumbnail 2">
+                            <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=100&h=100&fit=crop" onclick="goToSlide(2)" class="gallery-thumbnail w-20 h-20 object-cover rounded-lg" alt="Thumbnail 3">
+                            <img src="https://images.unsplash.com/photo-1587049633312-d628ae50a8ae?w=100&h=100&fit=crop" onclick="goToSlide(3)" class="gallery-thumbnail w-20 h-20 object-cover rounded-lg" alt="Thumbnail 4">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Grid Gallery -->
+                <div>
+                    <h3 class="text-3xl font-semibold text-center mb-8 cursive-text" style="color: var(--color-gold);">More Glimmers</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div class="gallery-grid-item rounded-xl overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1604882737482-1f9ee2f2976e?w=400&h=300&fit=crop" alt="Cat in Kitchen" class="w-full h-64 object-cover">
+                            <div class="gallery-overlay">
+                                <p class="text-lg font-semibold cursive-text">Watchful Presence</p>
+                                <p class="text-sm text-gray-300 cursive-text">Guardian of all we create</p>
+                            </div>
+                        </div>
+                        <div class="gallery-grid-item rounded-xl overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&h=300&fit=crop" alt="Cookie Dough" class="w-full h-64 object-cover">
+                            <div class="gallery-overlay">
+                                <p class="text-lg font-semibold cursive-text">Made from Scratch</p>
+                                <p class="text-sm text-gray-300 cursive-text">With flour-dusted hands</p>
+                            </div>
+                        </div>
+                        <div class="gallery-grid-item rounded-xl overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1464454709131-ffd692591ee5?w=400&h=300&fit=crop" alt="Wildflowers" class="w-full h-64 object-cover">
+                            <div class="gallery-overlay">
+                                <p class="text-lg font-semibold cursive-text">Foraged Beauty</p>
+                                <p class="text-sm text-gray-300 cursive-text">From meadow to table</p>
+                            </div>
+                        </div>
+                        <div class="gallery-grid-item rounded-xl overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1565661834013-d196ca46e14e?w=400&h=300&fit=crop" alt="Vintage Kitchen" class="w-full h-64 object-cover">
+                            <div class="gallery-overlay">
+                                <p class="text-lg font-semibold cursive-text">Our Sanctuary</p>
+                                <p class="text-sm text-gray-300 cursive-text">Where magic unfolds</p>
+                            </div>
+                        </div>
+                        <div class="gallery-grid-item rounded-xl overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1481391243133-f96216dcb5d2?w=400&h=300&fit=crop" alt="Berries" class="w-full h-64 object-cover">
+                            <div class="gallery-overlay">
+                                <p class="text-lg font-semibold cursive-text">Nature's Gifts</p>
+                                <p class="text-sm text-gray-300 cursive-text">Gathered with gratitude</p>
+                            </div>
+                        </div>
+                        <div class="gallery-grid-item rounded-xl overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d?w=400&h=300&fit=crop" alt="Black Cat Close" class="w-full h-64 object-cover">
+                            <div class="gallery-overlay">
+                                <p class="text-lg font-semibold cursive-text">Eternal Companion</p>
+                                <p class="text-sm text-gray-300 cursive-text">Forever in our hearts</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 5. About Section -->
+        <section id="about" class="py-20 px-4 sm:px-6 lg:px-8" style="background-color: var(--color-secondary);">
+            <div class="max-w-4xl mx-auto text-center space-y-8">
+                <h2 class="text-5xl font-bold mb-6" style="color: var(--color-gold);">Our Story</h2>
+                
+                <div class="divider">
+                    <span style="color: var(--color-gold);">✦</span>
+                </div>
+
+                <p class="text-2xl cursive-text leading-relaxed opacity-90">
+                    Welcome to Shaydow's Glimmers and Goods, where every moment is captured with intention and every treat is crafted with love in our cozy cottage sanctuary.
+                </p>
+                
+                <p class="text-xl leading-relaxed opacity-90">
+                    This endeavor is named in loving memory of Shaydow, my beloved black cat whose gentle presence brought countless glimmers into my life. Like the quiet comfort of a cat's purr, this business seeks to offer solace and beauty to those who need it most.
+                </p>
+                
+                <p class="text-xl leading-relaxed opacity-90 cursive-text">
+                    What began as a passion for photography and homemade preserves has blossomed into something more profound—a dual offering of visual and tangible comfort. Through my photography, I capture glimmers: those micro-moments of goodness that make your nervous system feel safe and connected. Through my handmade goods, I create edible comfort, each item infused with the same intention and care.
+                </p>
+
+                <p class="text-xl leading-relaxed opacity-90">
+                    We believe in the magic of simple, honest ingredients—berries picked from the forest edge, herbs from our cottage garden, and flour milled by local farmers. Every jar is filled with love, every cookie baked with care, and every photograph taken with reverence for the moment it preserves.
+                </p>
+
+                <p class="text-xl leading-relaxed opacity-90 cursive-text">
+                    Our aesthetic draws from cottagecore's warmth and gentleness, goblincore's earthy treasures, dark academia's intellectual elegance, and the refined grace of the Victorian era. We celebrate the beauty of handmade imperfection, the wisdom found in old books and gardens, and the charm of things made slowly, with intention.
+                </p>
+
+                <div class="ornate-border p-8 mt-12" style="background-color: var(--color-primary);">
+                    <p class="text-2xl cursive-text leading-relaxed" style="color: var(--color-gold);">
+                        Every photograph I take and every item I create is infused with a singular purpose: to provide comfort, to celebrate small joys, and to remind us all that healing can be found in the gentlest of places.
+                    </p>
+                </div>
+
+                <p class="text-xl leading-relaxed opacity-90 cursive-text mt-12">
+                    Whether you're seeking a visual reminder of peace or a handcrafted treasure to make your space feel more like home, you'll find sanctuary here.
+                </p>
+
+                <div class="divider mt-12">
+                    <span style="color: var(--color-gold);">✦</span>
+                </div>
+
+                <p class="text-lg italic opacity-75" style="color: var(--color-gold);">
+                    In loving memory of Shaydow—whose spirit watches over every glimmer we capture and every good we craft.
+                </p>
+            </div>
+        </section>
+
+        <!-- 6. Contact Section -->
+        <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-5xl font-bold mb-4" style="color: var(--color-gold);">Get In Touch</h2>
+                    <p class="text-xl cursive-text opacity-90">We would be honored to capture your glimmers or craft something special for your home</p>
+                    <div class="divider max-w-md mx-auto mt-6">
+                        <span style="color: var(--color-gold);">✦</span>
+                    </div>
+                </div>
+
+                <form class="ornate-border p-8 space-y-6" style="background-color: var(--color-secondary);">
+                    <div>
+                        <label for="name" class="block text-lg mb-2 cursive-text" style="color: var(--color-gold);">Your Name</label>
+                        <input type="text" id="name" name="name" required class="w-full px-4 py-3 rounded-lg text-lg" style="background-color: var(--color-primary); border: 1px solid var(--color-accent); color: var(--color-text-light);">
+                    </div>
+
+                    <div>
+                        <label for="email" class="block text-lg mb-2 cursive-text" style="color: var(--color-gold);">Email Address</label>
+                        <input type="email" id="email" name="email" required class="w-full px-4 py-3 rounded-lg text-lg" style="background-color: var(--color-primary); border: 1px solid var(--color-accent); color: var(--color-text-light);">
+                    </div>
+
+                    <div>
+                        <label for="interest" class="block text-lg mb-2 cursive-text" style="color: var(--color-gold);">I'm interested in...</label>
+                        <select id="interest" name="interest" class="w-full px-4 py-3 rounded-lg text-lg" style="background-color: var(--color-primary); border: 1px solid var(--color-accent); color: var(--color-text-light);">
+                            <option>Glimmers Photography Session</option>
+                            <option>Handmade Goods</option>
+                            <option>Custom Orders</option>
+                            <option>General Inquiry</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="message" class="block text-lg mb-2 cursive-text" style="color: var(--color-gold);">Your Message</label>
+                        <textarea id="message" name="message" rows="6" required class="w-full px-4 py-3 rounded-lg text-lg" style="background-color: var(--color-primary); border: 1px solid var(--color-accent); color: var(--color-text-light);"></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full py-4 rounded-lg text-xl font-semibold cta-button shadow-glow cursive-text" style="background-color: var(--color-accent); color: var(--color-text-light);">
+                        Send Message
+                    </button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-12 px-4 text-center" style="background-color: var(--color-primary); border-top: 2px solid var(--color-gold);">
+        <div class="max-w-4xl mx-auto space-y-4">
+            <h3 class="text-3xl font-bold script-text" style="color: var(--color-gold);">Shaydow's Glimmers & Goods</h3>
+            <p class="text-lg cursive-text opacity-80">Where every moment matters, and every creation carries meaning</p>
+            
+            <div class="divider max-w-md mx-auto my-6">
+                <span style="color: var(--color-gold);">✦</span>
+            </div>
+            
+            <p class="text-lg cursive-text" style="color: var(--color-gold);">In loving memory of Shaydow</p>
+            <p class="text-base opacity-70">Forever in our hearts, forever guiding our craft</p>
+            
+            <div class="pt-6 mt-6 border-t border-gray-700">
+                <p class="text-sm opacity-60">Copyright 2024 Shaydow's Glimmers & Goods. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Gallery slideshow
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.gallery-slide');
+        const thumbnails = document.querySelectorAll('.gallery-thumbnail');
+
+        function showSlide(n) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            thumbnails.forEach(thumb => thumb.classList.remove('active'));
+            
+            currentSlide = (n + slides.length) % slides.length;
+            
+            slides[currentSlide].classList.add('active');
+            thumbnails[currentSlide].classList.add('active');
+        }
+
+        function changeSlide(n) {
+            showSlide(currentSlide + n);
+        }
+
+        function goToSlide(n) {
+            showSlide(n);
+        }
+
+        // Auto-advance slideshow
+        setInterval(() => {
+            changeSlide(1);
+        }, 5000);
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
