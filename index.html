@@ -1,5 +1,3 @@
-html
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,8 +6,8 @@ html
     <title>Shaydow's Glimmers and Goods</title>
     <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Use Inter Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <!-- Use Artistic/Cursive Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Great+Vibes&display=swap" rel="stylesheet">
     
     <style>
         /* Define a custom color scheme based on the mystical/glimmering theme */
@@ -21,14 +19,21 @@ html
         }
         
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Cormorant Garamond', serif;
             background-color: var(--color-primary);
             color: var(--color-text-light);
             scroll-behavior: smooth;
         }
 
+        h1, h2, h3 {
+            font-family: 'Cinzel', serif;
+        }
+
+        .cursive-text {
+            font-family: 'Great Vibes', cursive;
+        }
+
         .shadow-glow {
-            /* Adjusted shadow to use the new accent color */
             box-shadow: 0 0 15px rgba(234, 169, 69, 0.6);
         }
 
@@ -44,48 +49,101 @@ html
             transition: background-color 0.3s, transform 0.1s;
         }
         .cta-button:hover {
-            background-color: #d19a3e; /* Darker gold on hover */
+            background-color: #d19a3e;
             transform: translateY(-1px);
         }
         
-        /* Specific dark background for product cards */
         .product-card-bg {
-             background-color: rgba(30, 22, 54, 0.7); /* Use secondary color with transparency for depth */
+             background-color: rgba(30, 22, 54, 0.7);
+        }
+
+        /* Gallery Slideshow Styles */
+        .gallery-slide {
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+        .gallery-slide.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .gallery-thumbnail {
+            cursor: pointer;
+            transition: transform 0.2s, opacity 0.2s;
+            opacity: 0.6;
+        }
+        .gallery-thumbnail:hover,
+        .gallery-thumbnail.active {
+            transform: scale(1.05);
+            opacity: 1;
+            border: 2px solid var(--color-accent);
+        }
+
+        /* Grid Gallery Styles */
+        .gallery-grid-item {
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        .gallery-grid-item img {
+            transition: transform 0.3s ease;
+        }
+        .gallery-grid-item:hover img {
+            transform: scale(1.1);
+        }
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(19, 13, 32, 0.9), transparent);
+            padding: 1rem;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        .gallery-grid-item:hover .gallery-overlay {
+            transform: translateY(0);
         }
     </style>
 </head>
 <body class="antialiased">
 
-    <!-- Navigation Bar (Sticky and Responsive) -->
+    <!-- Navigation Bar -->
     <header class="sticky top-0 z-50 bg-opacity-95 backdrop-blur-sm" style="background-color: var(--color-primary);">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <!-- Logo/Store Name -->
-                <a href="#" class="text-2xl font-bold tracking-wider" style="font-family: 'Playfair Display', serif; color: var(--color-accent);">
+                <a href="#" class="text-2xl font-bold tracking-wider cursive-text" style="color: var(--color-accent);">
                     Shaydow's Glimmers & Goods
                 </a>
 
-                <!-- Desktop Menu: Removed 'Contact' link -->
+                <!-- Desktop Menu -->
                 <nav class="hidden md:flex space-x-8">
-                    <a href="#home" class="text-base hover:text-gray-300 transition duration-300">Home</a>
-                    <a href="#shop" class="text-base hover:text-gray-300 transition duration-300">Shop</a>
-                    <a href="#about" class="text-base hover:text-gray-300 transition duration-300">Our Story</a>
+                    <a href="#home" class="text-lg hover:text-gray-300 transition duration-300">Home</a>
+                    <a href="#featured" class="text-lg hover:text-gray-300 transition duration-300">Featured</a>
+                    <a href="#shop" class="text-lg hover:text-gray-300 transition duration-300">Shop</a>
+                    <a href="#gallery" class="text-lg hover:text-gray-300 transition duration-300">Gallery</a>
+                    <a href="#about" class="text-lg hover:text-gray-300 transition duration-300">Our Story</a>
                 </nav>
 
                 <!-- Mobile Menu Button -->
                 <button id="mobile-menu-button" class="md:hidden p-2 rounded-md hover:bg-opacity-20 transition" style="color: var(--color-accent);">
-                    <!-- Menu Icon (Inline SVG) -->
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
                 </button>
             </div>
         </div>
 
-        <!-- Mobile Menu (Hidden by default): Removed 'Contact' link -->
+        <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden" style="background-color: var(--color-secondary);">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col items-center">
-                <a href="#home" class="block py-2 text-center text-sm font-medium hover:bg-opacity-30 rounded-md w-full">Home</a>
-                <a href="#shop" class="block py-2 text-center text-sm font-medium hover:bg-opacity-30 rounded-md w-full">Shop</a>
-                <a href="#about" class="block py-2 text-center text-sm font-medium hover:bg-opacity-30 rounded-md w-full">Our Story</a>
+                <a href="#home" class="block py-2 text-center text-base font-medium hover:bg-opacity-30 rounded-md w-full">Home</a>
+                <a href="#featured" class="block py-2 text-center text-base font-medium hover:bg-opacity-30 rounded-md w-full">Featured</a>
+                <a href="#shop" class="block py-2 text-center text-base font-medium hover:bg-opacity-30 rounded-md w-full">Shop</a>
+                <a href="#gallery" class="block py-2 text-center text-base font-medium hover:bg-opacity-30 rounded-md w-full">Gallery</a>
+                <a href="#about" class="block py-2 text-center text-base font-medium hover:bg-opacity-30 rounded-md w-full">Our Story</a>
             </div>
         </div>
     </header>
@@ -93,104 +151,264 @@ html
     <main>
         <!-- 1. Hero Section -->
         <section id="home" class="relative overflow-hidden flex items-center justify-center min-h-[85vh] text-center p-8" style="background-color: var(--color-secondary);">
-            
-            <!-- Hero Background Element (Optional: for a subtle dark glow effect) -->
             <div class="absolute inset-0 opacity-20" style="background: radial-gradient(circle at 50% 10%, var(--color-accent), transparent 60%);"></div>
 
             <div class="relative max-w-4xl z-10 space-y-6">
-                <h1 class="text-5xl sm:text-7xl font-extrabold tracking-tight leading-tight" style="font-family: 'Playfair Display', serif;">
+                <h1 class="text-5xl sm:text-7xl font-extrabold tracking-tight leading-tight">
                     Unveiling the <span class="shadow-glow" style="color: var(--color-accent);">Glimmers</span> Within the Shaydow
                 </h1>
-                <p class="text-xl sm:text-2xl font-light max-w-3xl mx-auto opacity-90">
+                <p class="text-2xl sm:text-3xl font-light max-w-3xl mx-auto opacity-90">
                     Curated treasures, enchanted goods, and artisanal crafts for your mystical journey.
                 </p>
-                <a href="#shop" class="inline-block px-10 py-4 mt-6 text-lg font-semibold rounded-full cta-button shadow-glow" style="background-color: var(--color-accent); color: var(--color-primary);">
+                <a href="#featured" class="inline-block px-10 py-4 mt-6 text-xl font-semibold rounded-full cta-button shadow-glow" style="background-color: var(--color-accent); color: var(--color-primary);">
                     Explore The Magic
                 </a>
             </div>
         </section>
 
-        <!-- 2. Product Showcase Section -->
-        <section id="shop" class="py-20 px-4 sm:px-6 lg:px-8">
-            <div class="max-w-7xl mx-auto text-center">
-                <h2 class="text-4xl font-bold mb-4" style="color: var(--color-accent);">Our Latest Goods</h2>
-                <p class="text-lg opacity-80 mb-12">Hand-picked items that blend beauty and enchantment.</p>
+        <!-- 2. Featured Items for Sale Section -->
+        <section id="featured" class="py-20 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-5xl font-bold mb-4" style="color: var(--color-accent);">Featured Treasures</h2>
+                    <p class="text-xl opacity-80">Limited edition pieces available now</p>
+                </div>
 
-                <!-- Product Grid (Image paths now point to assets/ folder) -->
+                <!-- Featured Items Grid -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    
+                    <!-- Featured Item 1 -->
+                    <div class="product-card-bg rounded-2xl overflow-hidden shadow-glow">
+                        <div class="grid md:grid-cols-2 gap-0">
+                            <img src="assets/amulet.jpg" alt="Shaydow's Signature Amulet" class="w-full h-full object-cover">
+                            <div class="p-8 flex flex-col justify-center space-y-4">
+                                <h3 class="text-3xl font-bold" style="color: var(--color-accent);">Shaydow's Signature Amulet</h3>
+                                <p class="text-lg text-gray-300">A signature piece handcrafted for guidance and protection. Each amulet is blessed under the full moon and carries the essence of ancient wisdom.</p>
+                                <div class="space-y-2">
+                                    <p class="text-sm text-gray-400">✨ Hand-blessed</p>
+                                    <p class="text-sm text-gray-400">✨ Sterling silver chain included</p>
+                                    <p class="text-sm text-gray-400">✨ Comes with authenticity certificate</p>
+                                </div>
+                                <p class="text-4xl font-bold" style="color: var(--color-accent);">$49.99</p>
+                                <button class="w-full py-3 rounded-lg text-lg font-semibold cta-button" style="background-color: var(--color-accent); color: var(--color-primary);">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Featured Item 2 -->
+                    <div class="product-card-bg rounded-2xl overflow-hidden shadow-glow">
+                        <div class="grid md:grid-cols-2 gap-0">
+                            <img src="assets/celestial_collection.jpg" alt="Celestial Collection" class="w-full h-full object-cover">
+                            <div class="p-8 flex flex-col justify-center space-y-4">
+                                <h3 class="text-3xl font-bold" style="color: var(--color-accent);">Celestial Collection Set</h3>
+                                <p class="text-lg text-gray-300">A complete set of hand-crafted celestial pieces to transform your sacred space. Includes moon phase wall art, star maps, and cosmic crystals.</p>
+                                <div class="space-y-2">
+                                    <p class="text-sm text-gray-400">✨ 5-piece collection</p>
+                                    <p class="text-sm text-gray-400">✨ Ethically sourced materials</p>
+                                    <p class="text-sm text-gray-400">✨ Gift-ready packaging</p>
+                                </div>
+                                <p class="text-4xl font-bold" style="color: var(--color-accent);">$35.99</p>
+                                <button class="w-full py-3 rounded-lg text-lg font-semibold cta-button" style="background-color: var(--color-accent); color: var(--color-primary);">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Product Showcase Section -->
+        <section id="shop" class="py-20 px-4 sm:px-6 lg:px-8" style="background-color: var(--color-secondary);">
+            <div class="max-w-7xl mx-auto text-center">
+                <h2 class="text-5xl font-bold mb-4" style="color: var(--color-accent);">Our Latest Goods</h2>
+                <p class="text-xl opacity-80 mb-12">Hand-picked items that blend beauty and enchantment.</p>
+
+                <!-- Product Grid -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                     
-                    <!-- Product Card 1: Shaydow's Amulet -->
+                    <!-- Product Card 1 -->
                     <div class="product-card product-card-bg rounded-xl overflow-hidden">
-                        <!-- New Path: assets/amulet.jpg -->
-                        <img src="assets/amulet.jpg" 
-                             alt="Shaydow's Signature Amulet" 
-                             class="w-full h-56 object-cover">
+                        <img src="assets/amulet.jpg" alt="Shaydow's Signature Amulet" class="w-full h-56 object-cover">
                         <div class="p-6 space-y-2">
-                            <h3 class="text-xl font-semibold" style="color: var(--color-accent);">Shaydow's Amulet</h3>
-                            <p class="text-sm text-gray-300">A signature piece for guidance and protection.</p>
-                            <p class="text-2xl font-bold mt-2">$49.99</p>
-                            <button class="w-full mt-4 py-2 rounded-lg text-sm font-medium cta-button" style="background-color: var(--color-accent); color: var(--color-primary);">View Details</button>
+                            <h3 class="text-2xl font-semibold" style="color: var(--color-accent);">Shaydow's Amulet</h3>
+                            <p class="text-base text-gray-300">A signature piece for guidance and protection.</p>
+                            <p class="text-3xl font-bold mt-2">$49.99</p>
+                            <button class="w-full mt-4 py-2 rounded-lg text-base font-medium cta-button" style="background-color: var(--color-accent); color: var(--color-primary);">View Details</button>
                         </div>
                     </div>
 
-                    <!-- Product Card 2: Shadow Whisper Decor -->
+                    <!-- Product Card 2 -->
                     <div class="product-card product-card-bg rounded-xl overflow-hidden">
-                        <!-- New Path: assets/shadow_whisper.jpg -->
-                        <img src="assets/shadow_whisper.jpg" 
-                             alt="Shadow Whisper Decor" 
-                             class="w-full h-56 object-cover">
+                        <img src="assets/shadow_whisper.jpg" alt="Shadow Whisper Decor" class="w-full h-56 object-cover">
                         <div class="p-6 space-y-2">
-                            <h3 class="text-xl font-semibold" style="color: var(--color-accent);">Shadow Whisper Decor</h3>
-                            <p class="text-sm text-gray-300">A hauntingly beautiful piece for deep reflection.</p>
-                            <p class="text-2xl font-bold mt-2">$24.00</p>
-                            <button class="w-full mt-4 py-2 rounded-lg text-sm font-medium cta-button" style="background-color: var(--color-accent); color: var(--color-primary);">View Details</button>
+                            <h3 class="text-2xl font-semibold" style="color: var(--color-accent);">Shadow Whisper Decor</h3>
+                            <p class="text-base text-gray-300">A hauntingly beautiful piece for deep reflection.</p>
+                            <p class="text-3xl font-bold mt-2">$24.00</p>
+                            <button class="w-full mt-4 py-2 rounded-lg text-base font-medium cta-button" style="background-color: var(--color-accent); color: var(--color-primary);">View Details</button>
                         </div>
                     </div>
 
-                    <!-- Product Card 3: Ethereal Shards -->
+                    <!-- Product Card 3 -->
                     <div class="product-card product-card-bg rounded-xl overflow-hidden">
-                        <!-- New Path: assets/ethereal_shards.jpg -->
-                        <img src="assets/ethereal_shards.jpg" 
-                             alt="Ethereal Shards" 
-                             class="w-full h-56 object-cover">
+                        <img src="assets/ethereal_shards.jpg" alt="Ethereal Shards" class="w-full h-56 object-cover">
                         <div class="p-6 space-y-2">
-                            <h3 class="text-xl font-semibold" style="color: var(--color-accent);">Ethereal Shards</h3>
-                            <p class="text-sm text-gray-300">Ethically sourced and charged under the moonlight.</p>
-                            <p class="text-2xl font-bold mt-2">$18.50</p>
-                            <button class="w-full mt-4 py-2 rounded-lg text-sm font-medium cta-button" style="background-color: var(--color-accent); color: var(--color-primary);">View Details</button>
+                            <h3 class="text-2xl font-semibold" style="color: var(--color-accent);">Ethereal Shards</h3>
+                            <p class="text-base text-gray-300">Ethically sourced and charged under the moonlight.</p>
+                            <p class="text-3xl font-bold mt-2">$18.50</p>
+                            <button class="w-full mt-4 py-2 rounded-lg text-base font-medium cta-button" style="background-color: var(--color-accent); color: var(--color-primary);">View Details</button>
                         </div>
                     </div>
 
-                    <!-- Product Card 4: Celestial Collection -->
+                    <!-- Product Card 4 -->
                     <div class="product-card product-card-bg rounded-xl overflow-hidden">
-                        <!-- New Path: assets/celestial_collection.jpg -->
-                        <img src="assets/celestial_collection.jpg" 
-                             alt="Celestial Collection" 
-                             class="w-full h-56 object-cover">
+                        <img src="assets/celestial_collection.jpg" alt="Celestial Collection" class="w-full h-56 object-cover">
                         <div class="p-6 space-y-2">
-                            <h3 class="text-xl font-semibold" style="color: var(--color-accent);">Celestial Collection</h3>
-                            <p class="text-sm text-gray-300">Hand-crafted pieces to bring magic into your home.</p>
-                            <p class="text-2xl font-bold mt-2">$35.99</p>
-                            <button class="w-full mt-4 py-2 rounded-lg text-sm font-medium cta-button" style="background-color: var(--color-accent); color: var(--color-primary);">View Details</button>
+                            <h3 class="text-2xl font-semibold" style="color: var(--color-accent);">Celestial Collection</h3>
+                            <p class="text-base text-gray-300">Hand-crafted pieces to bring magic into your home.</p>
+                            <p class="text-3xl font-bold mt-2">$35.99</p>
+                            <button class="w-full mt-4 py-2 rounded-lg text-base font-medium cta-button" style="background-color: var(--color-accent); color: var(--color-primary);">View Details</button>
                         </div>
                     </div>
 
                 </div>
                 
-                <a href="#" class="inline-block px-8 py-3 mt-16 text-lg font-semibold rounded-full border-2 shadow-glow hover:bg-opacity-10 transition duration-300" style="border-color: var(--color-accent); color: var(--color-accent);">
+                <a href="#" class="inline-block px-8 py-3 mt-16 text-xl font-semibold rounded-full border-2 shadow-glow hover:bg-opacity-10 transition duration-300" style="border-color: var(--color-accent); color: var(--color-accent);">
                     View All Collections
                 </a>
             </div>
         </section>
+
+        <!-- 4. Photo Gallery Section with Slideshow -->
+        <section id="gallery" class="py-20 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-5xl font-bold mb-4" style="color: var(--color-accent);">Mystical Gallery</h2>
+                    <p class="text-xl opacity-80">A glimpse into our enchanted world</p>
+                </div>
+
+                <!-- Slideshow Gallery -->
+                <div class="mb-20">
+                    <h3 class="text-3xl font-semibold text-center mb-8" style="color: var(--color-accent);">Featured Slideshow</h3>
+                    <div class="max-w-4xl mx-auto">
+                        <!-- Main Slideshow Container -->
+                        <div class="relative rounded-2xl overflow-hidden shadow-glow" style="background-color: var(--color-secondary);">
+                            <!-- Slide 1 -->
+                            <div class="gallery-slide active">
+                                <img src="assets/amulet.jpg" alt="Gallery Image 1" class="w-full h-96 object-cover">
+                                <div class="p-6 text-center">
+                                    <h4 class="text-2xl font-bold mb-2" style="color: var(--color-accent);">Enchanted Amulets</h4>
+                                    <p class="text-lg text-gray-300">Each piece tells a story of magic and mystery</p>
+                                </div>
+                            </div>
+                            <!-- Slide 2 -->
+                            <div class="gallery-slide">
+                                <img src="assets/shadow_whisper.jpg" alt="Gallery Image 2" class="w-full h-96 object-cover">
+                                <div class="p-6 text-center">
+                                    <h4 class="text-2xl font-bold mb-2" style="color: var(--color-accent);">Shadow Whispers</h4>
+                                    <p class="text-lg text-gray-300">Where darkness meets light in perfect harmony</p>
+                                </div>
+                            </div>
+                            <!-- Slide 3 -->
+                            <div class="gallery-slide">
+                                <img src="assets/ethereal_shards.jpg" alt="Gallery Image 3" class="w-full h-96 object-cover">
+                                <div class="p-6 text-center">
+                                    <h4 class="text-2xl font-bold mb-2" style="color: var(--color-accent);">Ethereal Crystals</h4>
+                                    <p class="text-lg text-gray-300">Nature's magic captured in crystalline form</p>
+                                </div>
+                            </div>
+                            <!-- Slide 4 -->
+                            <div class="gallery-slide">
+                                <img src="assets/celestial_collection.jpg" alt="Gallery Image 4" class="w-full h-96 object-cover">
+                                <div class="p-6 text-center">
+                                    <h4 class="text-2xl font-bold mb-2" style="color: var(--color-accent);">Celestial Wonders</h4>
+                                    <p class="text-lg text-gray-300">Bringing the cosmos into your sacred space</p>
+                                </div>
+                            </div>
+
+                            <!-- Navigation Arrows -->
+                            <button onclick="changeSlide(-1)" class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-75 text-white p-3 rounded-full transition">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                            </button>
+                            <button onclick="changeSlide(1)" class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-75 text-white p-3 rounded-full transition">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                            </button>
+                        </div>
+
+                        <!-- Thumbnail Navigation -->
+                        <div class="flex justify-center gap-4 mt-6">
+                            <img src="assets/amulet.jpg" onclick="goToSlide(0)" class="gallery-thumbnail active w-20 h-20 object-cover rounded-lg" alt="Thumbnail 1">
+                            <img src="assets/shadow_whisper.jpg" onclick="goToSlide(1)" class="gallery-thumbnail w-20 h-20 object-cover rounded-lg" alt="Thumbnail 2">
+                            <img src="assets/ethereal_shards.jpg" onclick="goToSlide(2)" class="gallery-thumbnail w-20 h-20 object-cover rounded-lg" alt="Thumbnail 3">
+                            <img src="assets/celestial_collection.jpg" onclick="goToSlide(3)" class="gallery-thumbnail w-20 h-20 object-cover rounded-lg" alt="Thumbnail 4">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Grid Gallery -->
+                <div>
+                    <h3 class="text-3xl font-semibold text-center mb-8" style="color: var(--color-accent);">Explore Our Collection</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Gallery Item 1 -->
+                        <div class="gallery-grid-item rounded-xl overflow-hidden">
+                            <img src="assets/amulet.jpg" alt="Gallery Item 1" class="w-full h-64 object-cover">
+                            <div class="gallery-overlay">
+                                <p class="text-lg font-semibold">Mystical Amulets</p>
+                                <p class="text-sm text-gray-300">Protection & Guidance</p>
+                            </div>
+                        </div>
+                        <!-- Gallery Item 2 -->
+                        <div class="gallery-grid-item rounded-xl overflow-hidden">
+                            <img src="assets/shadow_whisper.jpg" alt="Gallery Item 2" class="w-full h-64 object-cover">
+                            <div class="gallery-overlay">
+                                <p class="text-lg font-semibold">Shadow Decor</p>
+                                <p class="text-sm text-gray-300">Dark Elegance</p>
+                            </div>
+                        </div>
+                        <!-- Gallery Item 3 -->
+                        <div class="gallery-grid-item rounded-xl overflow-hidden">
+                            <img src="assets/ethereal_shards.jpg" alt="Gallery Item 3" class="w-full h-64 object-cover">
+                            <div class="gallery-overlay">
+                                <p class="text-lg font-semibold">Crystal Magic</p>
+                                <p class="text-sm text-gray-300">Moonlight Charged</p>
+                            </div>
+                        </div>
+                        <!-- Gallery Item 4 -->
+                        <div class="gallery-grid-item rounded-xl overflow-hidden">
+                            <img src="assets/celestial_collection.jpg" alt="Gallery Item 4" class="w-full h-64 object-cover">
+                            <div class="gallery-overlay">
+                                <p class="text-lg font-semibold">Celestial Art</p>
+                                <p class="text-sm text-gray-300">Cosmic Wonder</p>
+                            </div>
+                        </div>
+                        <!-- Gallery Item 5 -->
+                        <div class="gallery-grid-item rounded-xl overflow-hidden">
+                            <img src="assets/amulet.jpg" alt="Gallery Item 5" class="w-full h-64 object-cover">
+                            <div class="gallery-overlay">
+                                <p class="text-lg font-semibold">Sacred Jewelry</p>
+                                <p class="text-sm text-gray-300">Handcrafted Beauty</p>
+                            </div>
+                        </div>
+                        <!-- Gallery Item 6 -->
+                        <div class="gallery-grid-item rounded-xl overflow-hidden">
+                            <img src="assets/shadow_whisper.jpg" alt="Gallery Item 6" class="w-full h-64 object-cover">
+                            <div class="gallery-overlay">
+                                <p class="text-lg font-semibold">Ritual Items</p>
+                                <p class="text-sm text-gray-300">Sacred Practice</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
         
-        <!-- 3. About Section -->
+        <!-- 5. About Section -->
         <section id="about" class="py-20 px-4 sm:px-6 lg:px-8" style="background-color: var(--color-secondary);">
             <div class="max-w-4xl mx-auto text-center space-y-6">
-                <h2 class="text-4xl font-bold" style="color: var(--color-accent);">Our Story</h2>
-                <p class="text-lg leading-relaxed opacity-90">
+                <h2 class="text-5xl font-bold" style="color: var(--color-accent);">Our Story</h2>
+                <p class="text-xl leading-relaxed opacity-90">
                     Shaydow's Glimmers and Goods was born from a passion for the mystical and the beautiful. We believe in the power of handmade items to carry intention and magic. Every piece is carefully selected or crafted to ensure it brings light, wonder, and a touch of the extraordinary into your everyday life. We focus on ethical sourcing and quality craftsmanship, turning simple materials into genuine, glimmering treasures.
                 </p>
-                <div class="text-sm font-semibold pt-4" style="color: var(--color-accent);">
+                <div class="text-2xl font-semibold pt-4 cursive-text" style="color: var(--color-accent);">
                     — Crafted with Intention. Guided by Shadow and Light.
                 </div>
             </div>
@@ -201,15 +419,15 @@ html
     <!-- Footer -->
     <footer class="py-10 px-4 sm:px-6 lg:px-8 text-center border-t border-gray-700" style="background-color: var(--color-primary);">
         <div class="max-w-7xl mx-auto space-y-4">
-            <p class="text-xl font-bold" style="color: var(--color-accent);">Shaydow's Glimmers & Goods</p>
-            <!-- Keeping the email here as a direct contact method -->
-            <p class="text-sm text-gray-400">Email: contact@shaydowsglimmersandgoods.com</p>
+            <p class="text-2xl font-bold cursive-text" style="color: var(--color-accent);">Shaydow's Glimmers & Goods</p>
+            <p class="text-base text-gray-400">Email: contact@shaydowsglimmersandgoods.com</p>
             <p class="text-sm text-gray-500">&copy; 2025 Shaydow's Glimmers and Goods. All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- JavaScript for Mobile Menu Functionality -->
+    <!-- JavaScript -->
     <script>
+        // Mobile Menu
         document.addEventListener('DOMContentLoaded', () => {
             const button = document.getElementById('mobile-menu-button');
             const menu = document.getElementById('mobile-menu');
@@ -219,13 +437,43 @@ html
                 menu.classList.toggle('hidden');
             });
             
-            // Close menu when a link is clicked
             links.forEach(link => {
                 link.addEventListener('click', () => {
                     menu.classList.add('hidden');
                 });
             });
         });
+
+        // Slideshow Functionality
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.gallery-slide');
+        const thumbnails = document.querySelectorAll('.gallery-thumbnail');
+
+        function showSlide(n) {
+            if (n >= slides.length) currentSlide = 0;
+            if (n < 0) currentSlide = slides.length - 1;
+            
+            slides.forEach(slide => slide.classList.remove('active'));
+            thumbnails.forEach(thumb => thumb.classList.remove('active'));
+            
+            slides[currentSlide].classList.add('active');
+            thumbnails[currentSlide].classList.add('active');
+        }
+
+        function changeSlide(direction) {
+            currentSlide += direction;
+            showSlide(currentSlide);
+        }
+
+        function goToSlide(n) {
+            currentSlide = n;
+            showSlide(currentSlide);
+        }
+
+        // Auto-advance slideshow every 5 seconds
+        setInterval(() => {
+            changeSlide(1);
+        }, 5000);
     </script>
 </body>
 </html>
