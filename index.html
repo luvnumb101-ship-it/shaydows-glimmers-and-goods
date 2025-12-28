@@ -6,63 +6,103 @@
     <title>Shaydow's Glimmers and Goods</title>
     <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Use Artistic/Cursive Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Great+Vibes&display=swap" rel="stylesheet">
+    <!-- Victorian-inspired Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Pinyon+Script&family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
     
     <style>
-        /* Cottagecore color scheme with black cat influences */
+        /* Dark Victorian color scheme */
         :root {
-            --color-primary: #1a1410; /* Deep forest/charcoal brown */
-            --color-secondary: #2d2419; /* Warm dark brown */
-            --color-accent: #d4a574; /* Warm honey/butterscotch */
-            --color-accent-2: #8b7355; /* Earthy brown */
-            --color-text-light: #f5f1e8; /* Cream/parchment */
-            --color-green: #4a5d3f; /* Mossy green */
+            --color-primary: #0d0a0b; /* Deep charcoal black */
+            --color-secondary: #1a1416; /* Rich burgundy-black */
+            --color-accent: #c9a961; /* Antique gold */
+            --color-accent-2: #8b4e63; /* Deep rose/wine */
+            --color-text-light: #f5f1e8; /* Aged parchment */
+            --color-burgundy: #3d1f2e; /* Deep burgundy */
         }
         
         body {
-            font-family: 'Cormorant Garamond', serif;
+            font-family: 'EB Garamond', serif;
             background-color: var(--color-primary);
             color: var(--color-text-light);
             scroll-behavior: smooth;
+            background-image: 
+                repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 2px,
+                    rgba(201, 169, 97, 0.03) 2px,
+                    rgba(201, 169, 97, 0.03) 4px
+                );
         }
 
         h1, h2, h3 {
             font-family: 'Cinzel', serif;
+            letter-spacing: 0.05em;
         }
 
-        .cursive-text {
-            font-family: 'Great Vibes', cursive;
+        .script-text {
+            font-family: 'Pinyon Script', cursive;
         }
 
         .shadow-glow {
-            box-shadow: 0 0 20px rgba(212, 165, 116, 0.4);
+            box-shadow: 0 0 25px rgba(201, 169, 97, 0.5), 0 0 50px rgba(139, 78, 99, 0.3);
         }
 
         .product-card {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(201, 169, 97, 0.2);
         }
         .product-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7), 0 0 18px var(--color-accent);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 20px var(--color-accent);
+            border-color: var(--color-accent);
         }
 
         .cta-button {
-            transition: background-color 0.3s, transform 0.1s;
+            transition: all 0.3s ease;
+            border: 2px solid var(--color-accent);
         }
         .cta-button:hover {
-            background-color: #c69563;
+            background-color: var(--color-accent-2);
+            border-color: var(--color-accent-2);
             transform: translateY(-1px);
+            box-shadow: 0 5px 15px rgba(139, 78, 99, 0.5);
         }
         
         .product-card-bg {
-             background-color: rgba(45, 36, 25, 0.8);
+             background-color: rgba(26, 20, 22, 0.9);
+             background-image: 
+                radial-gradient(circle at 20% 50%, rgba(61, 31, 46, 0.1) 0%, transparent 50%);
+        }
+
+        /* Victorian ornamental borders */
+        .ornate-border {
+            border-top: 2px solid var(--color-accent);
+            border-bottom: 2px solid var(--color-accent);
+            position: relative;
+        }
+        .ornate-border::before,
+        .ornate-border::after {
+            content: "❦";
+            position: absolute;
+            color: var(--color-accent);
+            font-size: 1.5rem;
+        }
+        .ornate-border::before {
+            left: 50%;
+            transform: translateX(-50%);
+            top: -1rem;
+        }
+        .ornate-border::after {
+            left: 50%;
+            transform: translateX(-50%) rotate(180deg);
+            bottom: -1rem;
         }
 
         /* Gallery Slideshow Styles */
         .gallery-slide {
             display: none;
-            animation: fadeIn 0.5s;
+            animation: fadeIn 0.7s;
         }
         .gallery-slide.active {
             display: block;
@@ -74,14 +114,17 @@
 
         .gallery-thumbnail {
             cursor: pointer;
-            transition: transform 0.2s, opacity 0.2s;
-            opacity: 0.6;
+            transition: transform 0.3s, opacity 0.3s, border 0.3s;
+            opacity: 0.5;
+            border: 2px solid transparent;
+            filter: grayscale(30%);
         }
         .gallery-thumbnail:hover,
         .gallery-thumbnail.active {
-            transform: scale(1.05);
+            transform: scale(1.1);
             opacity: 1;
             border: 2px solid var(--color-accent);
+            filter: grayscale(0%);
         }
 
         /* Grid Gallery Styles */
@@ -89,54 +132,64 @@
             position: relative;
             overflow: hidden;
             cursor: pointer;
+            border: 1px solid rgba(201, 169, 97, 0.3);
         }
         .gallery-grid-item img {
-            transition: transform 0.3s ease;
+            transition: transform 0.4s ease, filter 0.4s ease;
+            filter: grayscale(20%) sepia(10%);
         }
         .gallery-grid-item:hover img {
             transform: scale(1.1);
+            filter: grayscale(0%) sepia(0%);
         }
         .gallery-overlay {
             position: absolute;
             bottom: 0;
             left: 0;
             right: 0;
-            background: linear-gradient(to top, rgba(26, 20, 16, 0.95), transparent);
-            padding: 1rem;
+            background: linear-gradient(to top, rgba(13, 10, 11, 0.95), transparent);
+            padding: 1.5rem;
             transform: translateY(100%);
-            transition: transform 0.3s ease;
+            transition: transform 0.4s ease;
+            border-top: 1px solid var(--color-accent);
         }
         .gallery-grid-item:hover .gallery-overlay {
             transform: translateY(0);
         }
 
-        /* Cat paw prints decoration */
-        .paw-print {
-            display: inline-block;
+        /* Victorian decorative elements */
+        .victorian-divider {
+            text-align: center;
+            margin: 2rem 0;
             color: var(--color-accent);
-            opacity: 0.5;
             font-size: 1.5rem;
+            opacity: 0.6;
+        }
+
+        /* Header styling */
+        header {
+            border-bottom: 1px solid rgba(201, 169, 97, 0.3);
         }
     </style>
 </head>
 <body class="antialiased">
 
     <!-- Navigation Bar -->
-    <header class="sticky top-0 z-50 bg-opacity-95 backdrop-blur-sm" style="background-color: var(--color-primary);">
+    <header class="sticky top-0 z-50 bg-opacity-98 backdrop-blur-sm" style="background-color: var(--color-primary);">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
+            <div class="flex justify-between items-center h-20">
                 <!-- Logo/Store Name -->
-                <a href="#" class="text-2xl font-bold tracking-wider cursive-text flex items-center gap-2" style="color: var(--color-accent);">
-                    🐾 Shaydow's Glimmers & Goods
+                <a href="#" class="text-2xl font-bold tracking-wider script-text flex items-center gap-2" style="color: var(--color-accent);">
+                    Shaydow's Glimmers & Goods
                 </a>
 
                 <!-- Desktop Menu -->
                 <nav class="hidden md:flex space-x-8">
-                    <a href="#home" class="text-lg hover:text-gray-300 transition duration-300">Home</a>
-                    <a href="#featured" class="text-lg hover:text-gray-300 transition duration-300">Featured</a>
-                    <a href="#shop" class="text-lg hover:text-gray-300 transition duration-300">Shop</a>
-                    <a href="#gallery" class="text-lg hover:text-gray-300 transition duration-300">Gallery</a>
-                    <a href="#about" class="text-lg hover:text-gray-300 transition duration-300">Our Story</a>
+                    <a href="#home" class="text-lg hover:text-gray-300 transition duration-300 tracking-wide">Home</a>
+                    <a href="#featured" class="text-lg hover:text-gray-300 transition duration-300 tracking-wide">Featured</a>
+                    <a href="#goods" class="text-lg hover:text-gray-300 transition duration-300 tracking-wide">Goods</a>
+                    <a href="#glimmers" class="text-lg hover:text-gray-300 transition duration-300 tracking-wide">Glimmers</a>
+                    <a href="#about" class="text-lg hover:text-gray-300 transition duration-300 tracking-wide">Our Story</a>
                 </nav>
 
                 <!-- Mobile Menu Button -->
@@ -147,85 +200,98 @@
         </div>
 
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden" style="background-color: var(--color-secondary);">
+        <div id="mobile-menu" class="hidden md:hidden border-t border-gray-800" style="background-color: var(--color-secondary);">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col items-center">
-                <a href="#home" class="block py-2 text-center text-base font-medium hover:bg-opacity-30 rounded-md w-full">Home</a>
-                <a href="#featured" class="block py-2 text-center text-base font-medium hover:bg-opacity-30 rounded-md w-full">Featured</a>
-                <a href="#shop" class="block py-2 text-center text-base font-medium hover:bg-opacity-30 rounded-md w-full">Shop</a>
-                <a href="#gallery" class="block py-2 text-center text-base font-medium hover:bg-opacity-30 rounded-md w-full">Gallery</a>
-                <a href="#about" class="block py-2 text-center text-base font-medium hover:bg-opacity-30 rounded-md w-full">Our Story</a>
+                <a href="#home" class="block py-2 text-center text-base font-medium hover:bg-opacity-30 rounded-md w-full tracking-wide">Home</a>
+                <a href="#featured" class="block py-2 text-center text-base font-medium hover:bg-opacity-30 rounded-md w-full tracking-wide">Featured</a>
+                <a href="#goods" class="block py-2 text-center text-base font-medium hover:bg-opacity-30 rounded-md w-full tracking-wide">Goods</a>
+                <a href="#glimmers" class="block py-2 text-center text-base font-medium hover:bg-opacity-30 rounded-md w-full tracking-wide">Glimmers</a>
+                <a href="#about" class="block py-2 text-center text-base font-medium hover:bg-opacity-30 rounded-md w-full tracking-wide">Our Story</a>
             </div>
         </div>
     </header>
 
     <main>
         <!-- 1. Hero Section -->
-        <section id="home" class="relative overflow-hidden flex items-center justify-center min-h-[85vh] text-center p-8" style="background-color: var(--color-secondary);">
-            <div class="absolute inset-0 opacity-20" style="background: radial-gradient(circle at 50% 10%, var(--color-accent), transparent 60%);"></div>
+        <section id="home" class="relative overflow-hidden flex items-center justify-center min-h-[90vh] text-center p-8" style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-burgundy) 100%);">
+            <div class="absolute inset-0 opacity-10" style="background: radial-gradient(circle at 50% 50%, var(--color-accent), transparent 70%);"></div>
 
-            <div class="relative max-w-4xl z-10 space-y-6">
-                <div class="flex justify-center gap-4 mb-4">
-                    <span class="text-4xl">🐈‍⬛</span>
-                    <span class="text-4xl">✨</span>
-                    <span class="text-4xl">🍯</span>
+            <div class="relative max-w-5xl z-10 space-y-8">
+                <div class="flex justify-center gap-6 mb-6">
+                    <span class="text-5xl opacity-80">🐈‍⬛</span>
+                    <span class="text-5xl opacity-60">✦</span>
+                    <span class="text-5xl opacity-80">📷</span>
+                    <span class="text-5xl opacity-60">✦</span>
+                    <span class="text-5xl opacity-80">🍯</span>
                 </div>
-                <h1 class="text-5xl sm:text-7xl font-extrabold tracking-tight leading-tight">
-                    Homemade <span class="shadow-glow" style="color: var(--color-accent);">Treasures</span> from Our Cottage Kitchen
+                
+                <h1 class="text-6xl sm:text-8xl font-extrabold tracking-tight leading-tight">
+                    <span class="shadow-glow" style="color: var(--color-accent);">Glimmers</span> & <span class="shadow-glow" style="color: var(--color-accent);">Goods</span>
                 </h1>
-                <p class="text-2xl sm:text-3xl font-light max-w-3xl mx-auto opacity-90">
-                    Where black cats guide us, and magic fills every jar, cookie, and treat we craft with love.
+                
+                <div class="victorian-divider">◈ ◆ ◈</div>
+                
+                <p class="text-2xl sm:text-3xl font-light max-w-3xl mx-auto opacity-90 leading-relaxed">
+                    Where Victorian elegance meets homemade enchantment. Guided by Shaydow, our black American Shorthair, we craft artisanal goods and capture moments of light.
                 </p>
-                <a href="#featured" class="inline-block px-10 py-4 mt-6 text-xl font-semibold rounded-full cta-button shadow-glow" style="background-color: var(--color-accent); color: var(--color-primary);">
-                    Explore Our Kitchen 🌿
-                </a>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mt-10">
+                    <a href="#goods" class="inline-block px-10 py-4 text-xl font-semibold rounded-sm cta-button" style="background-color: var(--color-accent); color: var(--color-primary);">
+                        Explore Our Goods
+                    </a>
+                    <a href="#glimmers" class="inline-block px-10 py-4 text-xl font-semibold rounded-sm cta-button" style="background-color: transparent; color: var(--color-accent);">
+                        View Glimmers Gallery
+                    </a>
+                </div>
             </div>
         </section>
 
         <!-- 2. Featured Items for Sale Section -->
-        <section id="featured" class="py-20 px-4 sm:px-6 lg:px-8">
+        <section id="featured" class="py-24 px-4 sm:px-6 lg:px-8" style="background-color: var(--color-secondary);">
             <div class="max-w-7xl mx-auto">
-                <div class="text-center mb-16">
-                    <h2 class="text-5xl font-bold mb-4" style="color: var(--color-accent);">🐾 Featured This Week 🐾</h2>
-                    <p class="text-xl opacity-80">Freshly made with seasonal ingredients and a sprinkle of magic</p>
+                <div class="text-center mb-20">
+                    <h2 class="text-6xl font-bold mb-6" style="color: var(--color-accent);">Featured This Week</h2>
+                    <div class="victorian-divider">◈ ◆ ◈</div>
+                    <p class="text-2xl opacity-80 mt-6">Handcrafted with Victorian sensibility and modern intention</p>
                 </div>
 
                 <!-- Featured Items Grid -->
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
                     
                     <!-- Featured Item 1: Wildberry Jam -->
-                    <div class="product-card-bg rounded-2xl overflow-hidden shadow-glow">
+                    <div class="product-card-bg rounded-sm overflow-hidden shadow-glow product-card">
                         <div class="grid md:grid-cols-2 gap-0">
                             <img src="https://images.unsplash.com/photo-1599785209707-a456fc1337bb?w=600&h=600&fit=crop" alt="Wildberry Jam" class="w-full h-full object-cover">
                             <div class="p-8 flex flex-col justify-center space-y-4">
-                                <h3 class="text-3xl font-bold" style="color: var(--color-accent);">🍓 Midnight Wildberry Jam</h3>
-                                <p class="text-lg text-gray-300">Handpicked berries gathered under moonlight, simmered with organic sugar and love. Our black cat familiar, Shadow, oversees every batch for quality!</p>
-                                <div class="space-y-2">
-                                    <p class="text-sm text-gray-400">🌙 Small batch (only 12 jars per week)</p>
-                                    <p class="text-sm text-gray-400">🌙 No preservatives or artificial ingredients</p>
-                                    <p class="text-sm text-gray-400">🌙 Perfect on toast, scones, or straight from the spoon</p>
-                                    <p class="text-sm text-gray-400">🌙 8 oz glass jar with wax seal</p>
+                                <h3 class="text-3xl font-bold" style="color: var(--color-accent);">Midnight Wildberry Preserve</h3>
+                                <p class="text-lg text-gray-300 leading-relaxed">Handpicked berries gathered under moonlight, simmered with organic cane sugar. Each batch overseen by Shaydow herself for quality assurance.</p>
+                                <div class="space-y-2 text-sm">
+                                    <p class="text-gray-400">✦ Small batch (12 jars per week)</p>
+                                    <p class="text-gray-400">✦ Victorian-style wax seal</p>
+                                    <p class="text-gray-400">✦ No preservatives</p>
+                                    <p class="text-gray-400">✦ 8 oz glass apothecary jar</p>
                                 </div>
-                                <p class="text-4xl font-bold" style="color: var(--color-accent);">$12.00</p>
-                                <button class="w-full py-3 rounded-lg text-lg font-semibold cta-button" style="background-color: var(--color-accent); color: var(--color-primary);">Add to Cart 🛒</button>
+                                <p class="text-4xl font-bold pt-4" style="color: var(--color-accent);">$12.00</p>
+                                <button class="w-full py-3 rounded-sm text-lg font-semibold cta-button" style="background-color: var(--color-accent); color: var(--color-primary);">Add to Cart</button>
                             </div>
                         </div>
                     </div>
 
                     <!-- Featured Item 2: Brownie Box -->
-                    <div class="product-card-bg rounded-2xl overflow-hidden shadow-glow">
+                    <div class="product-card-bg rounded-sm overflow-hidden shadow-glow product-card">
                         <div class="grid md:grid-cols-2 gap-0">
                             <img src="https://images.unsplash.com/photo-1607920591413-4ec007e70023?w=600&h=600&fit=crop" alt="Fudge Brownies" class="w-full h-full object-cover">
                             <div class="p-8 flex flex-col justify-center space-y-4">
-                                <h3 class="text-3xl font-bold" style="color: var(--color-accent);">🍫 Goblin's Delight Brownies</h3>
-                                <p class="text-lg text-gray-300">Rich, fudgy brownies that would make any goblin hoard them! Made with premium dark chocolate and a secret ingredient (hint: it's espresso!).</p>
-                                <div class="space-y-2">
-                                    <p class="text-sm text-gray-400">🍄 Box of 6 large brownies</p>
-                                    <p class="text-sm text-gray-400">🍄 Optional: Add walnuts or leave plain</p>
-                                    <p class="text-sm text-gray-400">🍄 Baked fresh to order</p>
-                                    <p class="text-sm text-gray-400">🍄 Stays fresh for 5 days (if they last that long!)</p>
+                                <h3 class="text-3xl font-bold" style="color: var(--color-accent);">Victorian Velvet Brownies</h3>
+                                <p class="text-lg text-gray-300 leading-relaxed">Rich, decadent brownies made with premium dark chocolate and a touch of espresso. A recipe passed down through generations.</p>
+                                <div class="space-y-2 text-sm">
+                                    <p class="text-gray-400">✦ Box of 6 generous portions</p>
+                                    <p class="text-gray-400">✦ Optional walnuts</p>
+                                    <p class="text-gray-400">✦ Baked fresh to order</p>
+                                    <p class="text-gray-400">✦ Packaged in vintage-style box</p>
                                 </div>
-                                <p class="text-4xl font-bold" style="color: var(--color-accent);">$18.00</p>
-                                <button class="w-full py-3 rounded-lg text-lg font-semibold cta-button" style="background-color: var(--color-accent); color: var(--color-primary);">Add to Cart 🛒</button>
+                                <p class="text-4xl font-bold pt-4" style="color: var(--color-accent);">$18.00</p>
+                                <button class="w-full py-3 rounded-sm text-lg font-semibold cta-button" style="background-color: var(--color-accent); color: var(--color-primary);">Add to Cart</button>
                             </div>
                         </div>
                     </div>
@@ -235,249 +301,147 @@
         </section>
 
         <!-- 3. Product Showcase Section -->
-        <section id="shop" class="py-20 px-4 sm:px-6 lg:px-8" style="background-color: var(--color-secondary);">
+        <section id="goods" class="py-24 px-4 sm:px-6 lg:px-8">
             <div class="max-w-7xl mx-auto text-center">
-                <h2 class="text-5xl font-bold mb-4" style="color: var(--color-accent);">Our Cottage Kitchen Menu</h2>
-                <p class="text-xl opacity-80 mb-12">Every item made with intention, ingredients from our garden, and feline supervision 🐈‍⬛</p>
+                <h2 class="text-6xl font-bold mb-6" style="color: var(--color-accent);">Our Goods</h2>
+                <div class="victorian-divider">◈ ◆ ◈</div>
+                <p class="text-2xl opacity-80 mb-16 mt-6">Every item crafted with intention, under Shaydow's watchful eye</p>
 
                 <!-- Product Grid -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                     
                     <!-- Product Card 1: Honey -->
-                    <div class="product-card product-card-bg rounded-xl overflow-hidden">
+                    <div class="product-card product-card-bg rounded-sm overflow-hidden">
                         <img src="https://images.unsplash.com/photo-1587049352846-4a222e784d38?w=400&h=300&fit=crop" alt="Raw Honey" class="w-full h-56 object-cover">
-                        <div class="p-6 space-y-2">
-                            <h3 class="text-2xl font-semibold" style="color: var(--color-accent);">🍯 Enchanted Honey</h3>
-                            <p class="text-base text-gray-300">Raw, unfiltered honey from local hives. Liquid gold in a jar!</p>
-                            <p class="text-3xl font-bold mt-2">$14.00</p>
-                            <button class="w-full mt-4 py-2 rounded-lg text-base font-medium cta-button" style="background-color: var(--color-accent); color: var(--color-primary);">Add to Cart</button>
+                        <div class="p-6 space-y-3">
+                            <h3 class="text-2xl font-semibold" style="color: var(--color-accent);">Enchanted Honey</h3>
+                            <p class="text-base text-gray-300">Raw, unfiltered honey from local apiaries. Liquid gold in an apothecary jar.</p>
+                            <p class="text-3xl font-bold mt-2" style="color: var(--color-accent);">$14.00</p>
+                            <button class="w-full mt-4 py-2 rounded-sm text-base font-medium cta-button" style="background-color: var(--color-accent); color: var(--color-primary);">Add to Cart</button>
                         </div>
                     </div>
 
                     <!-- Product Card 2: Cookies -->
-                    <div class="product-card product-card-bg rounded-xl overflow-hidden">
+                    <div class="product-card product-card-bg rounded-sm overflow-hidden">
                         <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=400&h=300&fit=crop" alt="Chocolate Chip Cookies" class="w-full h-56 object-cover">
-                        <div class="p-6 space-y-2">
-                            <h3 class="text-2xl font-semibold" style="color: var(--color-accent);">🍪 Shadow's Cookies</h3>
-                            <p class="text-base text-gray-300">Classic chocolate chip cookies with a hint of sea salt. Dozen per box.</p>
-                            <p class="text-3xl font-bold mt-2">$15.00</p>
-                            <button class="w-full mt-4 py-2 rounded-lg text-base font-medium cta-button" style="background-color: var(--color-accent); color: var(--color-primary);">Add to Cart</button>
+                        <div class="p-6 space-y-3">
+                            <h3 class="text-2xl font-semibold" style="color: var(--color-accent);">Shaydow's Cookies</h3>
+                            <p class="text-base text-gray-300">Classic chocolate chip with sea salt. Shaydow-approved. Dozen per box.</p>
+                            <p class="text-3xl font-bold mt-2" style="color: var(--color-accent);">$15.00</p>
+                            <button class="w-full mt-4 py-2 rounded-sm text-base font-medium cta-button" style="background-color: var(--color-accent); color: var(--color-primary);">Add to Cart</button>
                         </div>
                     </div>
 
                     <!-- Product Card 3: Herbal Oil -->
-                    <div class="product-card product-card-bg rounded-xl overflow-hidden">
+                    <div class="product-card product-card-bg rounded-sm overflow-hidden">
                         <img src="https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=400&h=300&fit=crop" alt="Herbal Infused Oil" class="w-full h-56 object-cover">
-                        <div class="p-6 space-y-2">
-                            <h3 class="text-2xl font-semibold" style="color: var(--color-accent);">🌿 Forest Floor Oil</h3>
-                            <p class="text-base text-gray-300">Olive oil infused with rosemary, thyme, and garlic. Perfect for cooking!</p>
-                            <p class="text-3xl font-bold mt-2">$16.50</p>
-                            <button class="w-full mt-4 py-2 rounded-lg text-base font-medium cta-button" style="background-color: var(--color-accent); color: var(--color-primary);">Add to Cart</button>
+                        <div class="p-6 space-y-3">
+                            <h3 class="text-2xl font-semibold" style="color: var(--color-accent);">Victorian Garden Oil</h3>
+                            <p class="text-base text-gray-300">Olive oil infused with rosemary, thyme, and garlic. For refined palates.</p>
+                            <p class="text-3xl font-bold mt-2" style="color: var(--color-accent);">$16.50</p>
+                            <button class="w-full mt-4 py-2 rounded-sm text-base font-medium cta-button" style="background-color: var(--color-accent); color: var(--color-primary);">Add to Cart</button>
                         </div>
                     </div>
 
                     <!-- Product Card 4: Apple Pie -->
-                    <div class="product-card product-card-bg rounded-xl overflow-hidden">
+                    <div class="product-card product-card-bg rounded-sm overflow-hidden">
                         <img src="https://images.unsplash.com/photo-1535920527002-b35e96722eb9?w=400&h=300&fit=crop" alt="Homemade Apple Pie" class="w-full h-56 object-cover">
-                        <div class="p-6 space-y-2">
-                            <h3 class="text-2xl font-semibold" style="color: var(--color-accent);">🥧 Harvest Moon Pie</h3>
-                            <p class="text-base text-gray-300">Traditional apple pie with cinnamon and a flaky butter crust. Made to order!</p>
-                            <p class="text-3xl font-bold mt-2">$28.00</p>
-                            <button class="w-full mt-4 py-2 rounded-lg text-base font-medium cta-button" style="background-color: var(--color-accent); color: var(--color-primary);">Add to Cart</button>
+                        <div class="p-6 space-y-3">
+                            <h3 class="text-2xl font-semibold" style="color: var(--color-accent);">Heirloom Apple Pie</h3>
+                            <p class="text-base text-gray-300">Traditional apple pie with cinnamon and flaky butter crust. Made to order.</p>
+                            <p class="text-3xl font-bold mt-2" style="color: var(--color-accent);">$28.00</p>
+                            <button class="w-full mt-4 py-2 rounded-sm text-base font-medium cta-button" style="background-color: var(--color-accent); color: var(--color-primary);">Add to Cart</button>
                         </div>
                     </div>
 
                     <!-- Product Card 5: Strawberry Jam -->
-                    <div class="product-card product-card-bg rounded-xl overflow-hidden">
+                    <div class="product-card product-card-bg rounded-sm overflow-hidden">
                         <img src="https://images.unsplash.com/photo-1619361266747-c7e0c79a0dcd?w=400&h=300&fit=crop" alt="Strawberry Jam" class="w-full h-56 object-cover">
-                        <div class="p-6 space-y-2">
-                            <h3 class="text-2xl font-semibold" style="color: var(--color-accent);">🍓 Sunshine Jam</h3>
-                            <p class="text-base text-gray-300">Sweet strawberry preserve made from organic berries. Limited batches!</p>
-                            <p class="text-3xl font-bold mt-2">$11.00</p>
-                            <button class="w-full mt-4 py-2 rounded-lg text-base font-medium cta-button" style="background-color: var(--color-accent); color: var(--color-primary);">Add to Cart</button>
+                        <div class="p-6 space-y-3">
+                            <h3 class="text-2xl font-semibold" style="color: var(--color-accent);">Crimson Preserve</h3>
+                            <p class="text-base text-gray-300">Sweet strawberry preserve from organic berries. Limited batches available.</p>
+                            <p class="text-3xl font-bold mt-2" style="color: var(--color-accent);">$11.00</p>
+                            <button class="w-full mt-4 py-2 rounded-sm text-base font-medium cta-button" style="background-color: var(--color-accent); color: var(--color-primary);">Add to Cart</button>
                         </div>
                     </div>
 
                     <!-- Product Card 6: Oatmeal Cookies -->
-                    <div class="product-card product-card-bg rounded-xl overflow-hidden">
+                    <div class="product-card product-card-bg rounded-sm overflow-hidden">
                         <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=400&h=300&fit=crop" alt="Oatmeal Cookies" class="w-full h-56 object-cover">
-                        <div class="p-6 space-y-2">
-                            <h3 class="text-2xl font-semibold" style="color: var(--color-accent);">🌾 Traveler's Oatmeal</h3>
-                            <p class="text-base text-gray-300">Hearty oatmeal cookies with raisins and a touch of nutmeg. Perfect for adventures!</p>
-                            <p class="text-3xl font-bold mt-2">$14.00</p>
-                            <button class="w-full mt-4 py-2 rounded-lg text-base font-medium cta-button" style="background-color: var(--color-accent); color: var(--color-primary);">Add to Cart</button>
+                        <div class="p-6 space-y-3">
+                            <h3 class="text-2xl font-semibold" style="color: var(--color-accent);">Parlour Oatmeal Biscuits</h3>
+                            <p class="text-base text-gray-300">Hearty oatmeal cookies with raisins and nutmeg. Perfect for tea time.</p>
+                            <p class="text-3xl font-bold mt-2" style="color: var(--color-accent);">$14.00</p>
+                            <button class="w-full mt-4 py-2 rounded-sm text-base font-medium cta-button" style="background-color: var(--color-accent); color: var(--color-primary);">Add to Cart</button>
                         </div>
                     </div>
 
                     <!-- Product Card 7: Lemon Curd -->
-                    <div class="product-card product-card-bg rounded-xl overflow-hidden">
+                    <div class="product-card product-card-bg rounded-sm overflow-hidden">
                         <img src="https://images.unsplash.com/photo-1605807646983-377bc5a76493?w=400&h=300&fit=crop" alt="Lemon Curd" class="w-full h-56 object-cover">
-                        <div class="p-6 space-y-2">
-                            <h3 class="text-2xl font-semibold" style="color: var(--color-accent);">🍋 Pixie Lemon Curd</h3>
-                            <p class="text-base text-gray-300">Tangy, creamy lemon curd. Magical on toast, pastries, or by the spoonful!</p>
-                            <p class="text-3xl font-bold mt-2">$13.00</p>
-                            <button class="w-full mt-4 py-2 rounded-lg text-base font-medium cta-button" style="background-color: var(--color-accent); color: var(--color-primary);">Add to Cart</button>
+                        <div class="p-6 space-y-3">
+                            <h3 class="text-2xl font-semibold" style="color: var(--color-accent);">Citrus Curd</h3>
+                            <p class="text-base text-gray-300">Tangy, creamy lemon curd. Exquisite on toast, pastries, or by the spoon.</p>
+                            <p class="text-3xl font-bold mt-2" style="color: var(--color-accent);">$13.00</p>
+                            <button class="w-full mt-4 py-2 rounded-sm text-base font-medium cta-button" style="background-color: var(--color-accent); color: var(--color-primary);">Add to Cart</button>
                         </div>
                     </div>
 
                     <!-- Product Card 8: Pecan Pie -->
-                    <div class="product-card product-card-bg rounded-xl overflow-hidden">
+                    <div class="product-card product-card-bg rounded-sm overflow-hidden">
                         <img src="https://images.unsplash.com/photo-1587241321921-91ece0707ea2?w=400&h=300&fit=crop" alt="Pecan Pie" class="w-full h-56 object-cover">
-                        <div class="p-6 space-y-2">
-                            <h3 class="text-2xl font-semibold" style="color: var(--color-accent);">🌰 Woodland Pecan Pie</h3>
-                            <p class="text-base text-gray-300">Rich pecan pie with maple syrup and a buttery crust. A forest feast!</p>
-                            <p class="text-3xl font-bold mt-2">$30.00</p>
-                            <button class="w-full mt-4 py-2 rounded-lg text-base font-medium cta-button" style="background-color: var(--color-accent); color: var(--color-primary);">Add to Cart</button>
+                        <div class="p-6 space-y-3">
+                            <h3 class="text-2xl font-semibold" style="color: var(--color-accent);">Gilded Pecan Pie</h3>
+                            <p class="text-base text-gray-300">Rich pecan pie with maple syrup and buttery crust. A refined indulgence.</p>
+                            <p class="text-3xl font-bold mt-2" style="color: var(--color-accent);">$30.00</p>
+                            <button class="w-full mt-4 py-2 rounded-sm text-base font-medium cta-button" style="background-color: var(--color-accent); color: var(--color-primary);">Add to Cart</button>
                         </div>
                     </div>
 
                 </div>
                 
-                <a href="#" class="inline-block px-8 py-3 mt-16 text-xl font-semibold rounded-full border-2 shadow-glow hover:bg-opacity-10 transition duration-300" style="border-color: var(--color-accent); color: var(--color-accent);">
-                    View Full Menu 📜
-                </a>
+                <div class="mt-20">
+                    <div class="victorian-divider">◈ ◆ ◈</div>
+                    <a href="#" class="inline-block px-10 py-4 mt-8 text-xl font-semibold rounded-sm cta-button shadow-glow" style="border-color: var(--color-accent); color: var(--color-accent); background: transparent;">
+                        View Complete Collection
+                    </a>
+                </div>
             </div>
         </section>
 
-        <!-- 4. Photo Gallery Section with Slideshow -->
-        <section id="gallery" class="py-20 px-4 sm:px-6 lg:px-8">
+        <!-- 4. Glimmers Photography Gallery Section -->
+        <section id="glimmers" class="py-24 px-4 sm:px-6 lg:px-8" style="background-color: var(--color-secondary);">
             <div class="max-w-7xl mx-auto">
-                <div class="text-center mb-16">
-                    <h2 class="text-5xl font-bold mb-4" style="color: var(--color-accent);">🐈‍⬛ Kitchen Chronicles 🐈‍⬛</h2>
-                    <p class="text-xl opacity-80">A peek into our cottage kitchen, our ingredients, and our feline sous chef!</p>
+                <div class="text-center mb-20">
+                    <h2 class="text-6xl font-bold mb-6" style="color: var(--color-accent);">Glimmers</h2>
+                    <div class="victorian-divider">◈ ◆ ◈</div>
+                    <p class="text-2xl opacity-80 mt-6 max-w-3xl mx-auto leading-relaxed">
+                        The opposite of triggers—moments of light, beauty, and peace. Photography that captures what heals, what soothes, what brings us back to ourselves.
+                    </p>
+                    <p class="text-lg opacity-70 mt-4 italic">
+                        "In the darkness, we find the glimmers that guide us home."
+                    </p>
                 </div>
 
                 <!-- Slideshow Gallery -->
-                <div class="mb-20">
-                    <h3 class="text-3xl font-semibold text-center mb-8" style="color: var(--color-accent);">Featured Moments</h3>
-                    <div class="max-w-4xl mx-auto">
+                <div class="mb-24">
+                    <h3 class="text-4xl font-semibold text-center mb-10" style="color: var(--color-accent);">Featured Glimmers</h3>
+                    <div class="max-w-5xl mx-auto">
                         <!-- Main Slideshow Container -->
-                        <div class="relative rounded-2xl overflow-hidden shadow-glow" style="background-color: var(--color-secondary);">
-                            <!-- Slide 1: Black Cat -->
+                        <div class="relative rounded-sm overflow-hidden shadow-glow" style="background-color: var(--color-primary); border: 2px solid var(--color-accent);">
+                            <!-- Slide 1: Nature -->
                             <div class="gallery-slide active">
-                                <img src="https://images.unsplash.com/photo-1529778873920-4da4926a72c2?w=800&h=500&fit=crop" alt="Our Black Cat Shadow" class="w-full h-96 object-cover">
-                                <div class="p-6 text-center">
-                                    <h4 class="text-2xl font-bold mb-2" style="color: var(--color-accent);">🐈‍⬛ Meet Shadow</h4>
-                                    <p class="text-lg text-gray-300">Our head quality control officer and kitchen guardian</p>
+                                <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=1000&h=600&fit=crop" alt="Nature Glimmer" class="w-full h-[500px] object-cover">
+                                <div class="p-8 text-center">
+                                    <h4 class="text-3xl font-bold mb-3" style="color: var(--color-accent);">Morning Mist</h4>
+                                    <p class="text-xl text-gray-300 leading-relaxed">When the world is quiet and new, possibilities emerge through the fog.</p>
                                 </div>
                             </div>
-                            <!-- Slide 2: Baking -->
+                            <!-- Slide 2: Cat -->
                             <div class="gallery-slide">
-                                <img src="https://images.unsplash.com/photo-1556040220-4096d522378d?w=800&h=500&fit=crop" alt="Fresh Baking" class="w-full h-96 object-cover">
-                                <div class="p-6 text-center">
-                                    <h4 class="text-2xl font-bold mb-2" style="color: var(--color-accent);">🥐 Fresh from the Oven</h4>
-                                    <p class="text-lg text-gray-300">Every morning begins with the smell of something magical baking</p>
+                                <img src="https://images.unsplash.com/photo-1529778873920-4da4926a72c2?w=1000&h=600&fit=crop" alt="Shaydow Portrait" class="w-full h-[500px] object-cover">
+                                <div class="p-8 text-center">
+                                    <h4 class="text-3xl font-bold mb-3" style="color: var(--color-accent);">Shaydow's Gaze</h4>
+                                    <p class="text-xl text-gray-300 leading-relaxed">Our American Shorthair muse, keeper of secrets and guardian of glimmers.</p>
                                 </div>
                             </div>
-                            <!-- Slide 3: Garden -->
-                            <div class="gallery-slide">
-                                <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=800&h=500&fit=crop" alt="Herb Garden" class="w-full h-96 object-cover">
-                                <div class="p-6 text-center">
-                                    <h4 class="text-2xl font-bold mb-2" style="color: var(--color-accent);">🌿 Our Cottage Garden</h4>
-                                    <p class="text-lg text-gray-300">Where we grow herbs, berries, and edible flowers for our creations</p>
-                                </div>
-                            </div>
-                            <!-- Slide 4: Jars -->
-                            <div class="gallery-slide">
-                                <img src="https://images.unsplash.com/photo-1587049633312-d628ae50a8ae?w=800&h=500&fit=crop" alt="Jam Jars" class="w-full h-96 object-cover">
-                                <div class="p-6 text-center">
-                                    <h4 class="text-2xl font-bold mb-2" style="color: var(--color-accent);">🍯 Jarred with Love</h4>
-                                    <p class="text-lg text-gray-300">Each jar sealed with intention and a handwritten label</p>
-                                </div>
-                            </div>
-
-                            <!-- Navigation Arrows -->
-                            <button onclick="changeSlide(-1)" class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-75 text-white p-3 rounded-full transition">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
-                            </button>
-                            <button onclick="changeSlide(1)" class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-75 text-white p-3 rounded-full transition">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                            </button>
-                        </div>
-
-                        <!-- Thumbnail Navigation -->
-                        <div class="flex justify-center gap-4 mt-6">
-                            <img src="https://images.unsplash.com/photo-1529778873920-4da4926a72c2?w=100&h=100&fit=crop" onclick="goToSlide(0)" class="gallery-thumbnail active w-20 h-20 object-cover rounded-lg" alt="Thumbnail 1">
-                            <img src="https://images.unsplash.com/photo-1556040220-4096d522378d?w=100&h=100&fit=crop" onclick="goToSlide(1)" class="gallery-thumbnail w-20 h-20 object-cover rounded-lg" alt="Thumbnail 2">
-                            <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=100&h=100&fit=crop" onclick="goToSlide(2)" class="gallery-thumbnail w-20 h-20 object-cover rounded-lg" alt="Thumbnail 3">
-                            <img src="https://images.unsplash.com/photo-1587049633312-d628ae50a8ae?w=100&h=100&fit=crop" onclick="goToSlide(3)" class="gallery-thumbnail w-20 h-20 object-cover rounded-lg" alt="Thumbnail 4">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Grid Gallery -->
-                <div>
-                    <h3 class="text-3xl font-semibold text-center mb-8" style="color: var(--color-accent);">Behind the Scenes</h3>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                        <!-- Gallery Item 1 -->
-                        <div class="gallery-grid-item rounded-xl overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1604882737482-1f9ee2f2976e?w=400&h=300&fit=crop" alt="Black Cat in Kitchen" class="w-full h-64 object-cover">
-                            <div class="gallery-overlay">
-                                <p class="text-lg font-semibold">Shadow's Supervision</p>
-                                <p class="text-sm text-gray-300">Every batch approved by paw</p>
-                            </div>
-                        </div>
-                        <!-- Gallery Item 2 -->
-                        <div class="gallery-grid-item rounded-xl overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&h=300&fit=crop" alt="Cookie Dough" class="w-full h-64 object-cover">
-                            <div class="gallery-overlay">
-                                <p class="text-lg font-semibold">Cookie Magic</p>
-                                <p class="text-sm text-gray-300">Made from scratch</p>
-                            </div>
-                        </div>
-                        <!-- Gallery Item 3 -->
-                        <div class="gallery-grid-item rounded-xl overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1464454709131-ffd692591ee5?w=400&h=300&fit=crop" alt="Wildflowers" class="w-full h-64 object-cover">
-                            <div class="gallery-overlay">
-                                <p class="text-lg font-semibold">Garden Treasures</p>
-                                <p class="text-sm text-gray-300">Foraged with care</p>
-                            </div>
-                        </div>
-                        <!-- Gallery Item 4 -->
-                        <div class="gallery-grid-item rounded-xl overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1565661834013-d196ca46e14e?w=400&h=300&fit=crop" alt="Vintage Kitchen" class="w-full h-64 object-cover">
-                            <div class="gallery-overlay">
-                                <p class="text-lg font-semibold">Our Cozy Kitchen</p>
-                                <p class="text-sm text-gray-300">Where the magic happens</p>
-                            </div>
-                        </div>
-                        <!-- Gallery Item 5 -->
-                        <div class="gallery-grid-item rounded-xl overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1481391243133-f96216dcb5d2?w=400&h=300&fit=crop" alt="Fresh Berries" class="w-full h-64 object-cover">
-                            <div class="gallery-overlay">
-                                <p class="text-lg font-semibold">Berry Picking</p>
-                                <p class="text-sm text-gray-300">Fresh from the forest</p>
-                            </div>
-                        </div>
-                        <!-- Gallery Item 6 -->
-                        <div class="gallery-grid-item rounded-xl overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d?w=400&h=300&fit=crop" alt="Black Cat Close Up" class="w-full h-64 object-cover">
-                            <div class="gallery-overlay">
-                                <p class="text-lg font-semibold">The Boss</p>
-                                <p class="text-sm text-gray-300">Shadow keeps watch</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- 5. About Section -->
-        <section id="about" class="py-20 px-4 sm:px-6 lg:px-8" style="background-color: var(--color-secondary);">
-            <div class="max-w-4xl mx-auto text-center space-y-6">
-                <h2 class="text-5xl font-bold mb-6" style="color: var(--color-accent);">Our Story 🐾</h2>
-                
-                <div class="flex justify-center mb-6">
-                    <span class="text-6xl">🐈‍⬛</span>
-                </div>
-
-                <p class="text-xl leading-relaxed opacity-90">
-                    Welcome to Shaydow's Glimmers and Goods, where every treat is crafted with intention in our cozy cottage kitchen. What started as a passion for homemade preserves and baked goods has blossomed into a small business guided by our feline familiar, Shadow (a wise black cat with impeccable taste).
-                </p>
-                
-                <p class="text-xl leading-relaxed opacity-90">
-                    We believe in the magic of simple, honest ingredients—berries picked from the forest edge, herbs from our cottage garden, and flour milled by local farmers. Every jar is filled with love, every cookie baked with care, and every pie sealed with a whispered blessing.
-                </p>
-
-                <p class="text-xl leading-relaxed opacity-90">
-                    Our aesthetic is cottagecore meets goblincore—a little whimsical, a little wild, and always welcoming. We embrace the beauty of handmade imperfection and the charm of things made slowly, with intention.
