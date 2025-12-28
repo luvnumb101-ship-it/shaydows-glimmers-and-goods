@@ -1,29 +1,217 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shaydow's Glimmers and Goods</title>
-    <!-- Load Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Cottagecore Cursive Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Medieval+Sharp&family=Homemade+Apple&family=Allura&display=swap" rel="stylesheet">
-    
-    <style>
-        /* Cottagecore color scheme with deep reds and greens */
-        :root {
-            --color-primary: #1d1a14; /* Earthy dark brown */
-            --color-secondary: #2a1e1a; /* Deep burgundy */
-            --color-tertiary: #1e2019; /* Forest green */
-            --color-accent: #b35f53; /* Rustic red */
-            --color-accent-2: #6a895c; /* Mossy green */
-            --color-accent-3: #e4c399; /* Cream/ivory */
-            --color-text-light: #f8f4eb; /* Soft parchment */
-        }
-        
-        body {
-            font-family: 'Homemade Apple', cursive;
-            background-color: var(--color-primary);
-            color: var(--color-text-light);
-            scroll-behavior: smooth;
-            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCI+PHBhdGggZD0iTTAgMGgyMHYyaC0yMHpt
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shaydow’s Glimmers & Goods</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Cottagecore Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --forest: #2f3e34;
+      --oxblood: #5a2a2a;
+      --jam: #a33e3e;
+      --moss: #6b7f5f;
+      --cream: #f6f1e7;
+    }
+
+    body {
+      font-family: 'Cormorant Garamond', serif;
+      background-color: var(--cream);
+      color: #2b2b2b;
+      scroll-behavior: smooth;
+      background-image:
+        radial-gradient(circle at 15% 20%, rgba(163,62,62,0.06), transparent 40%),
+        radial-gradient(circle at 85% 80%, rgba(107,127,95,0.08), transparent 40%);
+    }
+
+    h1, h2 {
+      font-family: 'Pinyon Script', cursive;
+    }
+
+    .divider {
+      text-align: center;
+      margin: 2rem 0;
+      color: var(--jam);
+      opacity: 0.6;
+      font-size: 1.4rem;
+    }
+
+    .card {
+      background: #fffaf3;
+      border-radius: 1rem;
+      border: 1px solid rgba(163,62,62,0.2);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+    }
+
+    .cta {
+      background: var(--jam);
+      color: var(--cream);
+      border-radius: 999px;
+      padding: 0.75rem 2rem;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+    }
+
+    .cta:hover {
+      background: var(--moss);
+      transform: translateY(-2px);
+    }
+
+    nav a {
+      position: relative;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 2px;
+      background: var(--jam);
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body class="antialiased">
+
+<!-- NAV -->
+<header class="sticky top-0 z-50 bg-[var(--cream)] shadow-sm">
+  <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+    <h1 class="text-3xl text-[var(--jam)]">Shaydow’s Glimmers & Goods</h1>
+    <nav class="hidden md:flex gap-8 text-lg">
+      <a href="#home">Home</a>
+      <a href="#shop">Goods</a>
+      <a href="#glimmers">Glimmers</a>
+      <a href="#about">Our Story</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- HERO -->
+<section id="home" class="min-h-[85vh] flex items-center justify-center text-center px-6"
+style="background: linear-gradient(135deg, var(--oxblood), var(--forest)); color: var(--cream);">
+
+  <div class="max-w-4xl space-y-8">
+    <div class="text-5xl">🐈‍⬛ ✦ 🍪 ✦ 📷</div>
+    <h1 class="text-7xl">Glimmers & Goods</h1>
+    <div class="divider">◈ ◆ ◈</div>
+    <p class="text-2xl leading-relaxed opacity-90">
+      Handmade comforts and quiet glimmers of light, lovingly created in memory of
+      Shaydow — my black American Shorthair and forever kitchen companion.
+    </p>
+    <a href="#shop" class="inline-block mt-8 cta">Browse the Kitchen</a>
+  </div>
+</section>
+
+<!-- GOODS -->
+<section id="shop" class="py-24 px-6">
+  <div class="max-w-7xl mx-auto text-center">
+    <h2 class="text-6xl text-[var(--jam)] mb-4">From My Kitchen</h2>
+    <div class="divider">◈ ◆ ◈</div>
+    <p class="text-2xl opacity-80 mb-16">
+      Small-batch goods made from scratch, slowly and with care
+    </p>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1599785209707-a456fc1337bb?w=600" class="rounded-t-xl h-56 w-full object-cover">
+        <div class="p-6">
+          <h3 class="text-2xl text-[var(--jam)]">Wildberry Jam</h3>
+          <p class="mt-2">Moon-simmered berries, sealed warm in glass.</p>
+          <p class="text-xl mt-4 font-semibold">$12</p>
+          <button class="cta w-full mt-4">Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1607920591413-4ec007e70023?w=600" class="rounded-t-xl h-56 w-full object-cover">
+        <div class="p-6">
+          <h3 class="text-2xl text-[var(--jam)]">Fudge Brownies</h3>
+          <p class="mt-2">Dark chocolate, rich and comforting.</p>
+          <p class="text-xl mt-4 font-semibold">$18</p>
+          <button class="cta w-full mt-4">Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=600" class="rounded-t-xl h-56 w-full object-cover">
+        <div class="p-6">
+          <h3 class="text-2xl text-[var(--jam)]">Herbal Oil</h3>
+          <p class="mt-2">Rosemary, thyme & garlic infused slowly.</p>
+          <p class="text-xl mt-4 font-semibold">$16</p>
+          <button class="cta w-full mt-4">Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=600" class="rounded-t-xl h-56 w-full object-cover">
+        <div class="p-6">
+          <h3 class="text-2xl text-[var(--jam)]">Shaydow’s Cookies</h3>
+          <p class="mt-2">Chocolate chip with sea salt.</p>
+          <p class="text-xl mt-4 font-semibold">$15</p>
+          <button class="cta w-full mt-4">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GLIMMERS -->
+<section id="glimmers" class="py-24 px-6 bg-[var(--forest)] text-[var(--cream)]">
+  <div class="max-w-6xl mx-auto text-center">
+    <h2 class="text-6xl mb-4">Glimmers</h2>
+    <div class="divider">◈ ◆ ◈</div>
+    <p class="text-2xl max-w-3xl mx-auto opacity-90">
+      Glimmers are the opposite of triggers — small moments that remind us
+      we are safe, present, and alive.
+    </p>
+
+    <div class="grid md:grid-cols-3 gap-8 mt-16">
+      <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=800" class="rounded-xl shadow-lg">
+      <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=800" class="rounded-xl shadow-lg">
+      <img src="https://images.unsplash.com/photo-1529778873920-4da4926a72c2?w=800" class="rounded-xl shadow-lg">
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="py-24 px-6 text-center">
+  <div class="max-w-3xl mx-auto">
+    <h2 class="text-6xl text-[var(--jam)] mb-4">Our Story</h2>
+    <div class="divider">◈ ◆ ◈</div>
+    <p class="text-xl leading-relaxed opacity-80">
+      Shaydow’s Glimmers & Goods grew from grief, love, and the quiet rituals that
+      make life gentler — baking, noticing light, creating beauty in small ways.
+      Every item and image here is made slowly, lovingly, and in honor of Shaydow,
+      my black American Shorthair who taught me how to notice joy.
+    </p>
+  </div>
+</section>
+
+</main>
+
+<footer class="py-8 text-center text-sm opacity-60">
+  © 2025 Shaydow’s Glimmers & Goods
+</footer>
+
+</body>
+</html>
