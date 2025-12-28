@@ -10,12 +10,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Great+Vibes&display=swap" rel="stylesheet">
     
     <style>
-        /* Define a custom color scheme based on the mystical/glimmering theme */
+        /* Cottagecore color scheme with black cat influences */
         :root {
-            --color-primary: #130D20; /* Deep Amethyst/Dark Base */
-            --color-secondary: #1E1636; /* Deep Violet-Gray for sections */
-            --color-accent: #EAA945; /* Rich, Antique Gold/Glimmering */
-            --color-text-light: #F0EFFF; /* Very light, slightly purplish white text */
+            --color-primary: #1a1410; /* Deep forest/charcoal brown */
+            --color-secondary: #2d2419; /* Warm dark brown */
+            --color-accent: #d4a574; /* Warm honey/butterscotch */
+            --color-accent-2: #8b7355; /* Earthy brown */
+            --color-text-light: #f5f1e8; /* Cream/parchment */
+            --color-green: #4a5d3f; /* Mossy green */
         }
         
         body {
@@ -34,7 +36,7 @@
         }
 
         .shadow-glow {
-            box-shadow: 0 0 15px rgba(234, 169, 69, 0.6);
+            box-shadow: 0 0 20px rgba(212, 165, 116, 0.4);
         }
 
         .product-card {
@@ -49,12 +51,12 @@
             transition: background-color 0.3s, transform 0.1s;
         }
         .cta-button:hover {
-            background-color: #d19a3e;
+            background-color: #c69563;
             transform: translateY(-1px);
         }
         
         .product-card-bg {
-             background-color: rgba(30, 22, 54, 0.7);
+             background-color: rgba(45, 36, 25, 0.8);
         }
 
         /* Gallery Slideshow Styles */
@@ -99,13 +101,21 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: linear-gradient(to top, rgba(19, 13, 32, 0.9), transparent);
+            background: linear-gradient(to top, rgba(26, 20, 16, 0.95), transparent);
             padding: 1rem;
             transform: translateY(100%);
             transition: transform 0.3s ease;
         }
         .gallery-grid-item:hover .gallery-overlay {
             transform: translateY(0);
+        }
+
+        /* Cat paw prints decoration */
+        .paw-print {
+            display: inline-block;
+            color: var(--color-accent);
+            opacity: 0.5;
+            font-size: 1.5rem;
         }
     </style>
 </head>
@@ -116,8 +126,8 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <!-- Logo/Store Name -->
-                <a href="#" class="text-2xl font-bold tracking-wider cursive-text" style="color: var(--color-accent);">
-                    Shaydow's Glimmers & Goods
+                <a href="#" class="text-2xl font-bold tracking-wider cursive-text flex items-center gap-2" style="color: var(--color-accent);">
+                    🐾 Shaydow's Glimmers & Goods
                 </a>
 
                 <!-- Desktop Menu -->
@@ -154,14 +164,19 @@
             <div class="absolute inset-0 opacity-20" style="background: radial-gradient(circle at 50% 10%, var(--color-accent), transparent 60%);"></div>
 
             <div class="relative max-w-4xl z-10 space-y-6">
+                <div class="flex justify-center gap-4 mb-4">
+                    <span class="text-4xl">🐈‍⬛</span>
+                    <span class="text-4xl">✨</span>
+                    <span class="text-4xl">🍯</span>
+                </div>
                 <h1 class="text-5xl sm:text-7xl font-extrabold tracking-tight leading-tight">
-                    Unveiling the <span class="shadow-glow" style="color: var(--color-accent);">Glimmers</span> Within the Shaydow
+                    Homemade <span class="shadow-glow" style="color: var(--color-accent);">Treasures</span> from Our Cottage Kitchen
                 </h1>
                 <p class="text-2xl sm:text-3xl font-light max-w-3xl mx-auto opacity-90">
-                    Curated treasures, enchanted goods, and artisanal crafts for your mystical journey.
+                    Where black cats guide us, and magic fills every jar, cookie, and treat we craft with love.
                 </p>
                 <a href="#featured" class="inline-block px-10 py-4 mt-6 text-xl font-semibold rounded-full cta-button shadow-glow" style="background-color: var(--color-accent); color: var(--color-primary);">
-                    Explore The Magic
+                    Explore Our Kitchen 🌿
                 </a>
             </div>
         </section>
@@ -170,45 +185,47 @@
         <section id="featured" class="py-20 px-4 sm:px-6 lg:px-8">
             <div class="max-w-7xl mx-auto">
                 <div class="text-center mb-16">
-                    <h2 class="text-5xl font-bold mb-4" style="color: var(--color-accent);">Featured Treasures</h2>
-                    <p class="text-xl opacity-80">Limited edition pieces available now</p>
+                    <h2 class="text-5xl font-bold mb-4" style="color: var(--color-accent);">🐾 Featured This Week 🐾</h2>
+                    <p class="text-xl opacity-80">Freshly made with seasonal ingredients and a sprinkle of magic</p>
                 </div>
 
                 <!-- Featured Items Grid -->
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
                     
-                    <!-- Featured Item 1 -->
+                    <!-- Featured Item 1: Wildberry Jam -->
                     <div class="product-card-bg rounded-2xl overflow-hidden shadow-glow">
                         <div class="grid md:grid-cols-2 gap-0">
-                            <img src="assets/amulet.jpg" alt="Shaydow's Signature Amulet" class="w-full h-full object-cover">
+                            <img src="https://images.unsplash.com/photo-1599785209707-a456fc1337bb?w=600&h=600&fit=crop" alt="Wildberry Jam" class="w-full h-full object-cover">
                             <div class="p-8 flex flex-col justify-center space-y-4">
-                                <h3 class="text-3xl font-bold" style="color: var(--color-accent);">Shaydow's Signature Amulet</h3>
-                                <p class="text-lg text-gray-300">A signature piece handcrafted for guidance and protection. Each amulet is blessed under the full moon and carries the essence of ancient wisdom.</p>
+                                <h3 class="text-3xl font-bold" style="color: var(--color-accent);">🍓 Midnight Wildberry Jam</h3>
+                                <p class="text-lg text-gray-300">Handpicked berries gathered under moonlight, simmered with organic sugar and love. Our black cat familiar, Shadow, oversees every batch for quality!</p>
                                 <div class="space-y-2">
-                                    <p class="text-sm text-gray-400">✨ Hand-blessed</p>
-                                    <p class="text-sm text-gray-400">✨ Sterling silver chain included</p>
-                                    <p class="text-sm text-gray-400">✨ Comes with authenticity certificate</p>
+                                    <p class="text-sm text-gray-400">🌙 Small batch (only 12 jars per week)</p>
+                                    <p class="text-sm text-gray-400">🌙 No preservatives or artificial ingredients</p>
+                                    <p class="text-sm text-gray-400">🌙 Perfect on toast, scones, or straight from the spoon</p>
+                                    <p class="text-sm text-gray-400">🌙 8 oz glass jar with wax seal</p>
                                 </div>
-                                <p class="text-4xl font-bold" style="color: var(--color-accent);">$49.99</p>
-                                <button class="w-full py-3 rounded-lg text-lg font-semibold cta-button" style="background-color: var(--color-accent); color: var(--color-primary);">Add to Cart</button>
+                                <p class="text-4xl font-bold" style="color: var(--color-accent);">$12.00</p>
+                                <button class="w-full py-3 rounded-lg text-lg font-semibold cta-button" style="background-color: var(--color-accent); color: var(--color-primary);">Add to Cart 🛒</button>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Featured Item 2 -->
+                    <!-- Featured Item 2: Brownie Box -->
                     <div class="product-card-bg rounded-2xl overflow-hidden shadow-glow">
                         <div class="grid md:grid-cols-2 gap-0">
-                            <img src="assets/celestial_collection.jpg" alt="Celestial Collection" class="w-full h-full object-cover">
+                            <img src="https://images.unsplash.com/photo-1607920591413-4ec007e70023?w=600&h=600&fit=crop" alt="Fudge Brownies" class="w-full h-full object-cover">
                             <div class="p-8 flex flex-col justify-center space-y-4">
-                                <h3 class="text-3xl font-bold" style="color: var(--color-accent);">Celestial Collection Set</h3>
-                                <p class="text-lg text-gray-300">A complete set of hand-crafted celestial pieces to transform your sacred space. Includes moon phase wall art, star maps, and cosmic crystals.</p>
+                                <h3 class="text-3xl font-bold" style="color: var(--color-accent);">🍫 Goblin's Delight Brownies</h3>
+                                <p class="text-lg text-gray-300">Rich, fudgy brownies that would make any goblin hoard them! Made with premium dark chocolate and a secret ingredient (hint: it's espresso!).</p>
                                 <div class="space-y-2">
-                                    <p class="text-sm text-gray-400">✨ 5-piece collection</p>
-                                    <p class="text-sm text-gray-400">✨ Ethically sourced materials</p>
-                                    <p class="text-sm text-gray-400">✨ Gift-ready packaging</p>
+                                    <p class="text-sm text-gray-400">🍄 Box of 6 large brownies</p>
+                                    <p class="text-sm text-gray-400">🍄 Optional: Add walnuts or leave plain</p>
+                                    <p class="text-sm text-gray-400">🍄 Baked fresh to order</p>
+                                    <p class="text-sm text-gray-400">🍄 Stays fresh for 5 days (if they last that long!)</p>
                                 </div>
-                                <p class="text-4xl font-bold" style="color: var(--color-accent);">$35.99</p>
-                                <button class="w-full py-3 rounded-lg text-lg font-semibold cta-button" style="background-color: var(--color-accent); color: var(--color-primary);">Add to Cart</button>
+                                <p class="text-4xl font-bold" style="color: var(--color-accent);">$18.00</p>
+                                <button class="w-full py-3 rounded-lg text-lg font-semibold cta-button" style="background-color: var(--color-accent); color: var(--color-primary);">Add to Cart 🛒</button>
                             </div>
                         </div>
                     </div>
@@ -220,60 +237,104 @@
         <!-- 3. Product Showcase Section -->
         <section id="shop" class="py-20 px-4 sm:px-6 lg:px-8" style="background-color: var(--color-secondary);">
             <div class="max-w-7xl mx-auto text-center">
-                <h2 class="text-5xl font-bold mb-4" style="color: var(--color-accent);">Our Latest Goods</h2>
-                <p class="text-xl opacity-80 mb-12">Hand-picked items that blend beauty and enchantment.</p>
+                <h2 class="text-5xl font-bold mb-4" style="color: var(--color-accent);">Our Cottage Kitchen Menu</h2>
+                <p class="text-xl opacity-80 mb-12">Every item made with intention, ingredients from our garden, and feline supervision 🐈‍⬛</p>
 
                 <!-- Product Grid -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                     
-                    <!-- Product Card 1 -->
+                    <!-- Product Card 1: Honey -->
                     <div class="product-card product-card-bg rounded-xl overflow-hidden">
-                        <img src="assets/amulet.jpg" alt="Shaydow's Signature Amulet" class="w-full h-56 object-cover">
+                        <img src="https://images.unsplash.com/photo-1587049352846-4a222e784d38?w=400&h=300&fit=crop" alt="Raw Honey" class="w-full h-56 object-cover">
                         <div class="p-6 space-y-2">
-                            <h3 class="text-2xl font-semibold" style="color: var(--color-accent);">Shaydow's Amulet</h3>
-                            <p class="text-base text-gray-300">A signature piece for guidance and protection.</p>
-                            <p class="text-3xl font-bold mt-2">$49.99</p>
-                            <button class="w-full mt-4 py-2 rounded-lg text-base font-medium cta-button" style="background-color: var(--color-accent); color: var(--color-primary);">View Details</button>
+                            <h3 class="text-2xl font-semibold" style="color: var(--color-accent);">🍯 Enchanted Honey</h3>
+                            <p class="text-base text-gray-300">Raw, unfiltered honey from local hives. Liquid gold in a jar!</p>
+                            <p class="text-3xl font-bold mt-2">$14.00</p>
+                            <button class="w-full mt-4 py-2 rounded-lg text-base font-medium cta-button" style="background-color: var(--color-accent); color: var(--color-primary);">Add to Cart</button>
                         </div>
                     </div>
 
-                    <!-- Product Card 2 -->
+                    <!-- Product Card 2: Cookies -->
                     <div class="product-card product-card-bg rounded-xl overflow-hidden">
-                        <img src="assets/shadow_whisper.jpg" alt="Shadow Whisper Decor" class="w-full h-56 object-cover">
+                        <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=400&h=300&fit=crop" alt="Chocolate Chip Cookies" class="w-full h-56 object-cover">
                         <div class="p-6 space-y-2">
-                            <h3 class="text-2xl font-semibold" style="color: var(--color-accent);">Shadow Whisper Decor</h3>
-                            <p class="text-base text-gray-300">A hauntingly beautiful piece for deep reflection.</p>
-                            <p class="text-3xl font-bold mt-2">$24.00</p>
-                            <button class="w-full mt-4 py-2 rounded-lg text-base font-medium cta-button" style="background-color: var(--color-accent); color: var(--color-primary);">View Details</button>
+                            <h3 class="text-2xl font-semibold" style="color: var(--color-accent);">🍪 Shadow's Cookies</h3>
+                            <p class="text-base text-gray-300">Classic chocolate chip cookies with a hint of sea salt. Dozen per box.</p>
+                            <p class="text-3xl font-bold mt-2">$15.00</p>
+                            <button class="w-full mt-4 py-2 rounded-lg text-base font-medium cta-button" style="background-color: var(--color-accent); color: var(--color-primary);">Add to Cart</button>
                         </div>
                     </div>
 
-                    <!-- Product Card 3 -->
+                    <!-- Product Card 3: Herbal Oil -->
                     <div class="product-card product-card-bg rounded-xl overflow-hidden">
-                        <img src="assets/ethereal_shards.jpg" alt="Ethereal Shards" class="w-full h-56 object-cover">
+                        <img src="https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=400&h=300&fit=crop" alt="Herbal Infused Oil" class="w-full h-56 object-cover">
                         <div class="p-6 space-y-2">
-                            <h3 class="text-2xl font-semibold" style="color: var(--color-accent);">Ethereal Shards</h3>
-                            <p class="text-base text-gray-300">Ethically sourced and charged under the moonlight.</p>
-                            <p class="text-3xl font-bold mt-2">$18.50</p>
-                            <button class="w-full mt-4 py-2 rounded-lg text-base font-medium cta-button" style="background-color: var(--color-accent); color: var(--color-primary);">View Details</button>
+                            <h3 class="text-2xl font-semibold" style="color: var(--color-accent);">🌿 Forest Floor Oil</h3>
+                            <p class="text-base text-gray-300">Olive oil infused with rosemary, thyme, and garlic. Perfect for cooking!</p>
+                            <p class="text-3xl font-bold mt-2">$16.50</p>
+                            <button class="w-full mt-4 py-2 rounded-lg text-base font-medium cta-button" style="background-color: var(--color-accent); color: var(--color-primary);">Add to Cart</button>
                         </div>
                     </div>
 
-                    <!-- Product Card 4 -->
+                    <!-- Product Card 4: Apple Pie -->
                     <div class="product-card product-card-bg rounded-xl overflow-hidden">
-                        <img src="assets/celestial_collection.jpg" alt="Celestial Collection" class="w-full h-56 object-cover">
+                        <img src="https://images.unsplash.com/photo-1535920527002-b35e96722eb9?w=400&h=300&fit=crop" alt="Homemade Apple Pie" class="w-full h-56 object-cover">
                         <div class="p-6 space-y-2">
-                            <h3 class="text-2xl font-semibold" style="color: var(--color-accent);">Celestial Collection</h3>
-                            <p class="text-base text-gray-300">Hand-crafted pieces to bring magic into your home.</p>
-                            <p class="text-3xl font-bold mt-2">$35.99</p>
-                            <button class="w-full mt-4 py-2 rounded-lg text-base font-medium cta-button" style="background-color: var(--color-accent); color: var(--color-primary);">View Details</button>
+                            <h3 class="text-2xl font-semibold" style="color: var(--color-accent);">🥧 Harvest Moon Pie</h3>
+                            <p class="text-base text-gray-300">Traditional apple pie with cinnamon and a flaky butter crust. Made to order!</p>
+                            <p class="text-3xl font-bold mt-2">$28.00</p>
+                            <button class="w-full mt-4 py-2 rounded-lg text-base font-medium cta-button" style="background-color: var(--color-accent); color: var(--color-primary);">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <!-- Product Card 5: Strawberry Jam -->
+                    <div class="product-card product-card-bg rounded-xl overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1619361266747-c7e0c79a0dcd?w=400&h=300&fit=crop" alt="Strawberry Jam" class="w-full h-56 object-cover">
+                        <div class="p-6 space-y-2">
+                            <h3 class="text-2xl font-semibold" style="color: var(--color-accent);">🍓 Sunshine Jam</h3>
+                            <p class="text-base text-gray-300">Sweet strawberry preserve made from organic berries. Limited batches!</p>
+                            <p class="text-3xl font-bold mt-2">$11.00</p>
+                            <button class="w-full mt-4 py-2 rounded-lg text-base font-medium cta-button" style="background-color: var(--color-accent); color: var(--color-primary);">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <!-- Product Card 6: Oatmeal Cookies -->
+                    <div class="product-card product-card-bg rounded-xl overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=400&h=300&fit=crop" alt="Oatmeal Cookies" class="w-full h-56 object-cover">
+                        <div class="p-6 space-y-2">
+                            <h3 class="text-2xl font-semibold" style="color: var(--color-accent);">🌾 Traveler's Oatmeal</h3>
+                            <p class="text-base text-gray-300">Hearty oatmeal cookies with raisins and a touch of nutmeg. Perfect for adventures!</p>
+                            <p class="text-3xl font-bold mt-2">$14.00</p>
+                            <button class="w-full mt-4 py-2 rounded-lg text-base font-medium cta-button" style="background-color: var(--color-accent); color: var(--color-primary);">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <!-- Product Card 7: Lemon Curd -->
+                    <div class="product-card product-card-bg rounded-xl overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1605807646983-377bc5a76493?w=400&h=300&fit=crop" alt="Lemon Curd" class="w-full h-56 object-cover">
+                        <div class="p-6 space-y-2">
+                            <h3 class="text-2xl font-semibold" style="color: var(--color-accent);">🍋 Pixie Lemon Curd</h3>
+                            <p class="text-base text-gray-300">Tangy, creamy lemon curd. Magical on toast, pastries, or by the spoonful!</p>
+                            <p class="text-3xl font-bold mt-2">$13.00</p>
+                            <button class="w-full mt-4 py-2 rounded-lg text-base font-medium cta-button" style="background-color: var(--color-accent); color: var(--color-primary);">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <!-- Product Card 8: Pecan Pie -->
+                    <div class="product-card product-card-bg rounded-xl overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1587241321921-91ece0707ea2?w=400&h=300&fit=crop" alt="Pecan Pie" class="w-full h-56 object-cover">
+                        <div class="p-6 space-y-2">
+                            <h3 class="text-2xl font-semibold" style="color: var(--color-accent);">🌰 Woodland Pecan Pie</h3>
+                            <p class="text-base text-gray-300">Rich pecan pie with maple syrup and a buttery crust. A forest feast!</p>
+                            <p class="text-3xl font-bold mt-2">$30.00</p>
+                            <button class="w-full mt-4 py-2 rounded-lg text-base font-medium cta-button" style="background-color: var(--color-accent); color: var(--color-primary);">Add to Cart</button>
                         </div>
                     </div>
 
                 </div>
                 
                 <a href="#" class="inline-block px-8 py-3 mt-16 text-xl font-semibold rounded-full border-2 shadow-glow hover:bg-opacity-10 transition duration-300" style="border-color: var(--color-accent); color: var(--color-accent);">
-                    View All Collections
+                    View Full Menu 📜
                 </a>
             </div>
         </section>
@@ -282,46 +343,46 @@
         <section id="gallery" class="py-20 px-4 sm:px-6 lg:px-8">
             <div class="max-w-7xl mx-auto">
                 <div class="text-center mb-16">
-                    <h2 class="text-5xl font-bold mb-4" style="color: var(--color-accent);">Mystical Gallery</h2>
-                    <p class="text-xl opacity-80">A glimpse into our enchanted world</p>
+                    <h2 class="text-5xl font-bold mb-4" style="color: var(--color-accent);">🐈‍⬛ Kitchen Chronicles 🐈‍⬛</h2>
+                    <p class="text-xl opacity-80">A peek into our cottage kitchen, our ingredients, and our feline sous chef!</p>
                 </div>
 
                 <!-- Slideshow Gallery -->
                 <div class="mb-20">
-                    <h3 class="text-3xl font-semibold text-center mb-8" style="color: var(--color-accent);">Featured Slideshow</h3>
+                    <h3 class="text-3xl font-semibold text-center mb-8" style="color: var(--color-accent);">Featured Moments</h3>
                     <div class="max-w-4xl mx-auto">
                         <!-- Main Slideshow Container -->
                         <div class="relative rounded-2xl overflow-hidden shadow-glow" style="background-color: var(--color-secondary);">
-                            <!-- Slide 1 -->
+                            <!-- Slide 1: Black Cat -->
                             <div class="gallery-slide active">
-                                <img src="assets/amulet.jpg" alt="Gallery Image 1" class="w-full h-96 object-cover">
+                                <img src="https://images.unsplash.com/photo-1529778873920-4da4926a72c2?w=800&h=500&fit=crop" alt="Our Black Cat Shadow" class="w-full h-96 object-cover">
                                 <div class="p-6 text-center">
-                                    <h4 class="text-2xl font-bold mb-2" style="color: var(--color-accent);">Enchanted Amulets</h4>
-                                    <p class="text-lg text-gray-300">Each piece tells a story of magic and mystery</p>
+                                    <h4 class="text-2xl font-bold mb-2" style="color: var(--color-accent);">🐈‍⬛ Meet Shadow</h4>
+                                    <p class="text-lg text-gray-300">Our head quality control officer and kitchen guardian</p>
                                 </div>
                             </div>
-                            <!-- Slide 2 -->
+                            <!-- Slide 2: Baking -->
                             <div class="gallery-slide">
-                                <img src="assets/shadow_whisper.jpg" alt="Gallery Image 2" class="w-full h-96 object-cover">
+                                <img src="https://images.unsplash.com/photo-1556040220-4096d522378d?w=800&h=500&fit=crop" alt="Fresh Baking" class="w-full h-96 object-cover">
                                 <div class="p-6 text-center">
-                                    <h4 class="text-2xl font-bold mb-2" style="color: var(--color-accent);">Shadow Whispers</h4>
-                                    <p class="text-lg text-gray-300">Where darkness meets light in perfect harmony</p>
+                                    <h4 class="text-2xl font-bold mb-2" style="color: var(--color-accent);">🥐 Fresh from the Oven</h4>
+                                    <p class="text-lg text-gray-300">Every morning begins with the smell of something magical baking</p>
                                 </div>
                             </div>
-                            <!-- Slide 3 -->
+                            <!-- Slide 3: Garden -->
                             <div class="gallery-slide">
-                                <img src="assets/ethereal_shards.jpg" alt="Gallery Image 3" class="w-full h-96 object-cover">
+                                <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=800&h=500&fit=crop" alt="Herb Garden" class="w-full h-96 object-cover">
                                 <div class="p-6 text-center">
-                                    <h4 class="text-2xl font-bold mb-2" style="color: var(--color-accent);">Ethereal Crystals</h4>
-                                    <p class="text-lg text-gray-300">Nature's magic captured in crystalline form</p>
+                                    <h4 class="text-2xl font-bold mb-2" style="color: var(--color-accent);">🌿 Our Cottage Garden</h4>
+                                    <p class="text-lg text-gray-300">Where we grow herbs, berries, and edible flowers for our creations</p>
                                 </div>
                             </div>
-                            <!-- Slide 4 -->
+                            <!-- Slide 4: Jars -->
                             <div class="gallery-slide">
-                                <img src="assets/celestial_collection.jpg" alt="Gallery Image 4" class="w-full h-96 object-cover">
+                                <img src="https://images.unsplash.com/photo-1587049633312-d628ae50a8ae?w=800&h=500&fit=crop" alt="Jam Jars" class="w-full h-96 object-cover">
                                 <div class="p-6 text-center">
-                                    <h4 class="text-2xl font-bold mb-2" style="color: var(--color-accent);">Celestial Wonders</h4>
-                                    <p class="text-lg text-gray-300">Bringing the cosmos into your sacred space</p>
+                                    <h4 class="text-2xl font-bold mb-2" style="color: var(--color-accent);">🍯 Jarred with Love</h4>
+                                    <p class="text-lg text-gray-300">Each jar sealed with intention and a handwritten label</p>
                                 </div>
                             </div>
 
@@ -336,64 +397,64 @@
 
                         <!-- Thumbnail Navigation -->
                         <div class="flex justify-center gap-4 mt-6">
-                            <img src="assets/amulet.jpg" onclick="goToSlide(0)" class="gallery-thumbnail active w-20 h-20 object-cover rounded-lg" alt="Thumbnail 1">
-                            <img src="assets/shadow_whisper.jpg" onclick="goToSlide(1)" class="gallery-thumbnail w-20 h-20 object-cover rounded-lg" alt="Thumbnail 2">
-                            <img src="assets/ethereal_shards.jpg" onclick="goToSlide(2)" class="gallery-thumbnail w-20 h-20 object-cover rounded-lg" alt="Thumbnail 3">
-                            <img src="assets/celestial_collection.jpg" onclick="goToSlide(3)" class="gallery-thumbnail w-20 h-20 object-cover rounded-lg" alt="Thumbnail 4">
+                            <img src="https://images.unsplash.com/photo-1529778873920-4da4926a72c2?w=100&h=100&fit=crop" onclick="goToSlide(0)" class="gallery-thumbnail active w-20 h-20 object-cover rounded-lg" alt="Thumbnail 1">
+                            <img src="https://images.unsplash.com/photo-1556040220-4096d522378d?w=100&h=100&fit=crop" onclick="goToSlide(1)" class="gallery-thumbnail w-20 h-20 object-cover rounded-lg" alt="Thumbnail 2">
+                            <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=100&h=100&fit=crop" onclick="goToSlide(2)" class="gallery-thumbnail w-20 h-20 object-cover rounded-lg" alt="Thumbnail 3">
+                            <img src="https://images.unsplash.com/photo-1587049633312-d628ae50a8ae?w=100&h=100&fit=crop" onclick="goToSlide(3)" class="gallery-thumbnail w-20 h-20 object-cover rounded-lg" alt="Thumbnail 4">
                         </div>
                     </div>
                 </div>
 
                 <!-- Grid Gallery -->
                 <div>
-                    <h3 class="text-3xl font-semibold text-center mb-8" style="color: var(--color-accent);">Explore Our Collection</h3>
+                    <h3 class="text-3xl font-semibold text-center mb-8" style="color: var(--color-accent);">Behind the Scenes</h3>
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                         <!-- Gallery Item 1 -->
                         <div class="gallery-grid-item rounded-xl overflow-hidden">
-                            <img src="assets/amulet.jpg" alt="Gallery Item 1" class="w-full h-64 object-cover">
+                            <img src="https://images.unsplash.com/photo-1604882737482-1f9ee2f2976e?w=400&h=300&fit=crop" alt="Black Cat in Kitchen" class="w-full h-64 object-cover">
                             <div class="gallery-overlay">
-                                <p class="text-lg font-semibold">Mystical Amulets</p>
-                                <p class="text-sm text-gray-300">Protection & Guidance</p>
+                                <p class="text-lg font-semibold">Shadow's Supervision</p>
+                                <p class="text-sm text-gray-300">Every batch approved by paw</p>
                             </div>
                         </div>
                         <!-- Gallery Item 2 -->
                         <div class="gallery-grid-item rounded-xl overflow-hidden">
-                            <img src="assets/shadow_whisper.jpg" alt="Gallery Item 2" class="w-full h-64 object-cover">
+                            <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&h=300&fit=crop" alt="Cookie Dough" class="w-full h-64 object-cover">
                             <div class="gallery-overlay">
-                                <p class="text-lg font-semibold">Shadow Decor</p>
-                                <p class="text-sm text-gray-300">Dark Elegance</p>
+                                <p class="text-lg font-semibold">Cookie Magic</p>
+                                <p class="text-sm text-gray-300">Made from scratch</p>
                             </div>
                         </div>
                         <!-- Gallery Item 3 -->
                         <div class="gallery-grid-item rounded-xl overflow-hidden">
-                            <img src="assets/ethereal_shards.jpg" alt="Gallery Item 3" class="w-full h-64 object-cover">
+                            <img src="https://images.unsplash.com/photo-1464454709131-ffd692591ee5?w=400&h=300&fit=crop" alt="Wildflowers" class="w-full h-64 object-cover">
                             <div class="gallery-overlay">
-                                <p class="text-lg font-semibold">Crystal Magic</p>
-                                <p class="text-sm text-gray-300">Moonlight Charged</p>
+                                <p class="text-lg font-semibold">Garden Treasures</p>
+                                <p class="text-sm text-gray-300">Foraged with care</p>
                             </div>
                         </div>
                         <!-- Gallery Item 4 -->
                         <div class="gallery-grid-item rounded-xl overflow-hidden">
-                            <img src="assets/celestial_collection.jpg" alt="Gallery Item 4" class="w-full h-64 object-cover">
+                            <img src="https://images.unsplash.com/photo-1565661834013-d196ca46e14e?w=400&h=300&fit=crop" alt="Vintage Kitchen" class="w-full h-64 object-cover">
                             <div class="gallery-overlay">
-                                <p class="text-lg font-semibold">Celestial Art</p>
-                                <p class="text-sm text-gray-300">Cosmic Wonder</p>
+                                <p class="text-lg font-semibold">Our Cozy Kitchen</p>
+                                <p class="text-sm text-gray-300">Where the magic happens</p>
                             </div>
                         </div>
                         <!-- Gallery Item 5 -->
                         <div class="gallery-grid-item rounded-xl overflow-hidden">
-                            <img src="assets/amulet.jpg" alt="Gallery Item 5" class="w-full h-64 object-cover">
+                            <img src="https://images.unsplash.com/photo-1481391243133-f96216dcb5d2?w=400&h=300&fit=crop" alt="Fresh Berries" class="w-full h-64 object-cover">
                             <div class="gallery-overlay">
-                                <p class="text-lg font-semibold">Sacred Jewelry</p>
-                                <p class="text-sm text-gray-300">Handcrafted Beauty</p>
+                                <p class="text-lg font-semibold">Berry Picking</p>
+                                <p class="text-sm text-gray-300">Fresh from the forest</p>
                             </div>
                         </div>
                         <!-- Gallery Item 6 -->
                         <div class="gallery-grid-item rounded-xl overflow-hidden">
-                            <img src="assets/shadow_whisper.jpg" alt="Gallery Item 6" class="w-full h-64 object-cover">
+                            <img src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d?w=400&h=300&fit=crop" alt="Black Cat Close Up" class="w-full h-64 object-cover">
                             <div class="gallery-overlay">
-                                <p class="text-lg font-semibold">Ritual Items</p>
-                                <p class="text-sm text-gray-300">Sacred Practice</p>
+                                <p class="text-lg font-semibold">The Boss</p>
+                                <p class="text-sm text-gray-300">Shadow keeps watch</p>
                             </div>
                         </div>
                     </div>
@@ -404,76 +465,19 @@
         <!-- 5. About Section -->
         <section id="about" class="py-20 px-4 sm:px-6 lg:px-8" style="background-color: var(--color-secondary);">
             <div class="max-w-4xl mx-auto text-center space-y-6">
-                <h2 class="text-5xl font-bold" style="color: var(--color-accent);">Our Story</h2>
-                <p class="text-xl leading-relaxed opacity-90">
-                    Shaydow's Glimmers and Goods was born from a passion for the mystical and the beautiful. We believe in the power of handmade items to carry intention and magic. Every piece is carefully selected or crafted to ensure it brings light, wonder, and a touch of the extraordinary into your everyday life. We focus on ethical sourcing and quality craftsmanship, turning simple materials into genuine, glimmering treasures.
-                </p>
-                <div class="text-2xl font-semibold pt-4 cursive-text" style="color: var(--color-accent);">
-                    — Crafted with Intention. Guided by Shadow and Light.
+                <h2 class="text-5xl font-bold mb-6" style="color: var(--color-accent);">Our Story 🐾</h2>
+                
+                <div class="flex justify-center mb-6">
+                    <span class="text-6xl">🐈‍⬛</span>
                 </div>
-            </div>
-        </section>
-        
-    </main>
 
-    <!-- Footer -->
-    <footer class="py-10 px-4 sm:px-6 lg:px-8 text-center border-t border-gray-700" style="background-color: var(--color-primary);">
-        <div class="max-w-7xl mx-auto space-y-4">
-            <p class="text-2xl font-bold cursive-text" style="color: var(--color-accent);">Shaydow's Glimmers & Goods</p>
-            <p class="text-base text-gray-400">Email: contact@shaydowsglimmersandgoods.com</p>
-            <p class="text-sm text-gray-500">&copy; 2025 Shaydow's Glimmers and Goods. All rights reserved.</p>
-        </div>
-    </footer>
+                <p class="text-xl leading-relaxed opacity-90">
+                    Welcome to Shaydow's Glimmers and Goods, where every treat is crafted with intention in our cozy cottage kitchen. What started as a passion for homemade preserves and baked goods has blossomed into a small business guided by our feline familiar, Shadow (a wise black cat with impeccable taste).
+                </p>
+                
+                <p class="text-xl leading-relaxed opacity-90">
+                    We believe in the magic of simple, honest ingredients—berries picked from the forest edge, herbs from our cottage garden, and flour milled by local farmers. Every jar is filled with love, every cookie baked with care, and every pie sealed with a whispered blessing.
+                </p>
 
-    <!-- JavaScript -->
-    <script>
-        // Mobile Menu
-        document.addEventListener('DOMContentLoaded', () => {
-            const button = document.getElementById('mobile-menu-button');
-            const menu = document.getElementById('mobile-menu');
-            const links = menu.querySelectorAll('a');
-
-            button.addEventListener('click', () => {
-                menu.classList.toggle('hidden');
-            });
-            
-            links.forEach(link => {
-                link.addEventListener('click', () => {
-                    menu.classList.add('hidden');
-                });
-            });
-        });
-
-        // Slideshow Functionality
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.gallery-slide');
-        const thumbnails = document.querySelectorAll('.gallery-thumbnail');
-
-        function showSlide(n) {
-            if (n >= slides.length) currentSlide = 0;
-            if (n < 0) currentSlide = slides.length - 1;
-            
-            slides.forEach(slide => slide.classList.remove('active'));
-            thumbnails.forEach(thumb => thumb.classList.remove('active'));
-            
-            slides[currentSlide].classList.add('active');
-            thumbnails[currentSlide].classList.add('active');
-        }
-
-        function changeSlide(direction) {
-            currentSlide += direction;
-            showSlide(currentSlide);
-        }
-
-        function goToSlide(n) {
-            currentSlide = n;
-            showSlide(currentSlide);
-        }
-
-        // Auto-advance slideshow every 5 seconds
-        setInterval(() => {
-            changeSlide(1);
-        }, 5000);
-    </script>
-</body>
-</html>
+                <p class="text-xl leading-relaxed opacity-90">
+                    Our aesthetic is cottagecore meets goblincore—a little whimsical, a little wild, and always welcoming. We embrace the beauty of handmade imperfection and the charm of things made slowly, with intention.
