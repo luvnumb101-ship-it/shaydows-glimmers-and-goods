@@ -1,447 +1,213 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shaydow's Glimmers and Goods</title>
-    <!-- Load Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Victorian-inspired Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Pinyon+Script&family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
-    
-    <style>
-        /* Dark Victorian color scheme */
-        :root {
-            --color-primary: #0d0a0b; /* Deep charcoal black */
-            --color-secondary: #1a1416; /* Rich burgundy-black */
-            --color-accent: #c9a961; /* Antique gold */
-            --color-accent-2: #8b4e63; /* Deep rose/wine */
-            --color-text-light: #f5f1e8; /* Aged parchment */
-            --color-burgundy: #3d1f2e; /* Deep burgundy */
-        }
-        
-        body {
-            font-family: 'EB Garamond', serif;
-            background-color: var(--color-primary);
-            color: var(--color-text-light);
-            scroll-behavior: smooth;
-            background-image: 
-                repeating-linear-gradient(
-                    0deg,
-                    transparent,
-                    transparent 2px,
-                    rgba(201, 169, 97, 0.03) 2px,
-                    rgba(201, 169, 97, 0.03) 4px
-                );
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shaydow’s Glimmers & Goods</title>
 
-        h1, h2, h3 {
-            font-family: 'Cinzel', serif;
-            letter-spacing: 0.05em;
-        }
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
 
-        .script-text {
-            font-family: 'Pinyon Script', cursive;
-        }
+  <!-- Cottagecore Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
 
-        .shadow-glow {
-            box-shadow: 0 0 25px rgba(201, 169, 97, 0.5), 0 0 50px rgba(139, 78, 99, 0.3);
-        }
+  <style>
+    :root {
+      --forest: #2f3e34;
+      --oxblood: #5a2a2a;
+      --jam: #a33e3e;
+      --moss: #6b7f5f;
+      --cream: #f6f1e7;
+    }
 
-        .product-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid rgba(201, 169, 97, 0.2);
-        }
-        .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 20px var(--color-accent);
-            border-color: var(--color-accent);
-        }
+    body {
+      font-family: 'Cormorant Garamond', serif;
+      background: var(--cream);
+      color: #2b2b2b;
+      background-image:
+        radial-gradient(circle at 15% 20%, rgba(163,62,62,0.06), transparent 40%),
+        radial-gradient(circle at 85% 80%, rgba(107,127,95,0.08), transparent 40%);
+    }
 
-        .cta-button {
-            transition: all 0.3s ease;
-            border: 2px solid var(--color-accent);
-        }
-        .cta-button:hover {
-            background-color: var(--color-accent-2);
-            border-color: var(--color-accent-2);
-            transform: translateY(-1px);
-            box-shadow: 0 5px 15px rgba(139, 78, 99, 0.5);
-        }
-        
-        .product-card-bg {
-             background-color: rgba(26, 20, 22, 0.9);
-             background-image: 
-                radial-gradient(circle at 20% 50%, rgba(61, 31, 46, 0.1) 0%, transparent 50%);
-        }
+    h1, h2 {
+      font-family: 'Pinyon Script', cursive;
+    }
 
-        /* Victorian ornamental borders */
-        .ornate-border {
-            border-top: 2px solid var(--color-accent);
-            border-bottom: 2px solid var(--color-accent);
-            position: relative;
-        }
-        .ornate-border::before,
-        .ornate-border::after {
-            content: "❦";
-            position: absolute;
-            color: var(--color-accent);
-            font-size: 1.5rem;
-        }
-        .ornate-border::before {
-            left: 50%;
-            transform: translateX(-50%);
-            top: -1rem;
-        }
-        .ornate-border::after {
-            left: 50%;
-            transform: translateX(-50%) rotate(180deg);
-            bottom: -1rem;
-        }
+    .divider {
+      text-align: center;
+      margin: 2rem 0;
+      color: var(--jam);
+      opacity: 0.6;
+      font-size: 1.4rem;
+    }
 
-        /* Gallery Slideshow Styles */
-        .gallery-slide {
-            display: none;
-            animation: fadeIn 0.7s;
-        }
-        .gallery-slide.active {
-            display: block;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
+    .card {
+      background: #fffaf3;
+      border-radius: 1rem;
+      border: 1px solid rgba(163,62,62,0.2);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease;
+    }
 
-        .gallery-thumbnail {
-            cursor: pointer;
-            transition: transform 0.3s, opacity 0.3s, border 0.3s;
-            opacity: 0.5;
-            border: 2px solid transparent;
-            filter: grayscale(30%);
-        }
-        .gallery-thumbnail:hover,
-        .gallery-thumbnail.active {
-            transform: scale(1.1);
-            opacity: 1;
-            border: 2px solid var(--color-accent);
-            filter: grayscale(0%);
-        }
+    .card:hover {
+      transform: translateY(-4px);
+    }
 
-        /* Grid Gallery Styles */
-        .gallery-grid-item {
-            position: relative;
-            overflow: hidden;
-            cursor: pointer;
-            border: 1px solid rgba(201, 169, 97, 0.3);
-        }
-        .gallery-grid-item img {
-            transition: transform 0.4s ease, filter 0.4s ease;
-            filter: grayscale(20%) sepia(10%);
-        }
-        .gallery-grid-item:hover img {
-            transform: scale(1.1);
-            filter: grayscale(0%) sepia(0%);
-        }
-        .gallery-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(13, 10, 11, 0.95), transparent);
-            padding: 1.5rem;
-            transform: translateY(100%);
-            transition: transform 0.4s ease;
-            border-top: 1px solid var(--color-accent);
-        }
-        .gallery-grid-item:hover .gallery-overlay {
-            transform: translateY(0);
-        }
+    .cta {
+      background: var(--jam);
+      color: var(--cream);
+      border-radius: 999px;
+      padding: 0.75rem 2rem;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+    }
 
-        /* Victorian decorative elements */
-        .victorian-divider {
-            text-align: center;
-            margin: 2rem 0;
-            color: var(--color-accent);
-            font-size: 1.5rem;
-            opacity: 0.6;
-        }
+    .cta:hover {
+      background: var(--moss);
+      transform: translateY(-2px);
+    }
 
-        /* Header styling */
-        header {
-            border-bottom: 1px solid rgba(201, 169, 97, 0.3);
-        }
-    </style>
+    nav a {
+      position: relative;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 2px;
+      background: var(--jam);
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+  </style>
 </head>
+
 <body class="antialiased">
 
-    <!-- Navigation Bar -->
-    <header class="sticky top-0 z-50 bg-opacity-98 backdrop-blur-sm" style="background-color: var(--color-primary);">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                <!-- Logo/Store Name -->
-                <a href="#" class="text-2xl font-bold tracking-wider script-text flex items-center gap-2" style="color: var(--color-accent);">
-                    Shaydow's Glimmers & Goods
-                </a>
+<!-- NAV -->
+<header class="sticky top-0 z-50 bg-[var(--cream)] shadow-sm">
+  <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+    <h1 class="text-3xl text-[var(--jam)]">Shaydow’s Glimmers & Goods</h1>
+    <nav class="hidden md:flex gap-8 text-lg">
+      <a href="#home">Home</a>
+      <a href="#goods">Goods</a>
+      <a href="#glimmers">Glimmers</a>
+      <a href="#about">Our Story</a>
+    </nav>
+  </div>
+</header>
 
-                <!-- Desktop Menu -->
-                <nav class="hidden md:flex space-x-8">
-                    <a href="#home" class="text-lg hover:text-gray-300 transition duration-300 tracking-wide">Home</a>
-                    <a href="#featured" class="text-lg hover:text-gray-300 transition duration-300 tracking-wide">Featured</a>
-                    <a href="#goods" class="text-lg hover:text-gray-300 transition duration-300 tracking-wide">Goods</a>
-                    <a href="#glimmers" class="text-lg hover:text-gray-300 transition duration-300 tracking-wide">Glimmers</a>
-                    <a href="#about" class="text-lg hover:text-gray-300 transition duration-300 tracking-wide">Our Story</a>
-                </nav>
+<!-- HERO -->
+<section id="home" class="min-h-[90vh] flex items-center justify-center text-center px-6"
+style="background: linear-gradient(135deg, var(--oxblood), var(--forest)); color: var(--cream);">
 
-                <!-- Mobile Menu Button -->
-                <button id="mobile-menu-button" class="md:hidden p-2 rounded-md hover:bg-opacity-20 transition" style="color: var(--color-accent);">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-                </button>
-            </div>
+  <div class="max-w-4xl space-y-8">
+    <div class="text-5xl">🐈‍⬛ ✦ 🍯 ✦ 📷</div>
+    <h1 class="text-7xl">Glimmers & Goods</h1>
+    <div class="divider">◈ ◆ ◈</div>
+    <p class="text-2xl leading-relaxed opacity-90">
+      Handmade comforts and quiet glimmers of light, lovingly created in memory of
+      Shaydow — my black American Shorthair and forever kitchen companion.
+    </p>
+    <div class="flex gap-6 justify-center pt-8">
+      <a href="#goods" class="cta">Browse Goods</a>
+      <a href="#glimmers" class="cta bg-transparent border border-[var(--cream)]">View Glimmers</a>
+    </div>
+  </div>
+</section>
+
+<!-- GOODS -->
+<section id="goods" class="py-24 px-6">
+  <div class="max-w-7xl mx-auto text-center">
+    <h2 class="text-6xl text-[var(--jam)] mb-4">From My Kitchen</h2>
+    <div class="divider">◈ ◆ ◈</div>
+    <p class="text-2xl opacity-80 mb-16">Small-batch, made with care and intention</p>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1599785209707-a456fc1337bb?w=600" class="rounded-t-xl h-56 w-full object-cover">
+        <div class="p-6">
+          <h3 class="text-2xl text-[var(--jam)]">Wildberry Jam</h3>
+          <p class="mt-2">Moon-simmered berries, sealed in glass.</p>
+          <p class="text-xl mt-4 font-semibold">$12</p>
+          <button class="cta w-full mt-4">Add to Cart</button>
         </div>
+      </div>
 
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden border-t border-gray-800" style="background-color: var(--color-secondary);">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col items-center">
-                <a href="#home" class="block py-2 text-center text-base font-medium hover:bg-opacity-30 rounded-md w-full tracking-wide">Home</a>
-                <a href="#featured" class="block py-2 text-center text-base font-medium hover:bg-opacity-30 rounded-md w-full tracking-wide">Featured</a>
-                <a href="#goods" class="block py-2 text-center text-base font-medium hover:bg-opacity-30 rounded-md w-full tracking-wide">Goods</a>
-                <a href="#glimmers" class="block py-2 text-center text-base font-medium hover:bg-opacity-30 rounded-md w-full tracking-wide">Glimmers</a>
-                <a href="#about" class="block py-2 text-center text-base font-medium hover:bg-opacity-30 rounded-md w-full tracking-wide">Our Story</a>
-            </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1607920591413-4ec007e70023?w=600" class="rounded-t-xl h-56 w-full object-cover">
+        <div class="p-6">
+          <h3 class="text-2xl text-[var(--jam)]">Velvet Brownies</h3>
+          <p class="mt-2">Dark chocolate, espresso-kissed.</p>
+          <p class="text-xl mt-4 font-semibold">$18</p>
+          <button class="cta w-full mt-4">Add to Cart</button>
         </div>
-    </header>
+      </div>
 
-    <main>
-        <!-- 1. Hero Section -->
-        <section id="home" class="relative overflow-hidden flex items-center justify-center min-h-[90vh] text-center p-8" style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-burgundy) 100%);">
-            <div class="absolute inset-0 opacity-10" style="background: radial-gradient(circle at 50% 50%, var(--color-accent), transparent 70%);"></div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=600" class="rounded-t-xl h-56 w-full object-cover">
+        <div class="p-6">
+          <h3 class="text-2xl text-[var(--jam)]">Herbal Oil</h3>
+          <p class="mt-2">Rosemary, thyme & garlic infusion.</p>
+          <p class="text-xl mt-4 font-semibold">$16</p>
+          <button class="cta w-full mt-4">Add to Cart</button>
+        </div>
+      </div>
 
-            <div class="relative max-w-5xl z-10 space-y-8">
-                <div class="flex justify-center gap-6 mb-6">
-                    <span class="text-5xl opacity-80">🐈‍⬛</span>
-                    <span class="text-5xl opacity-60">✦</span>
-                    <span class="text-5xl opacity-80">📷</span>
-                    <span class="text-5xl opacity-60">✦</span>
-                    <span class="text-5xl opacity-80">🍯</span>
-                </div>
-                
-                <h1 class="text-6xl sm:text-8xl font-extrabold tracking-tight leading-tight">
-                    <span class="shadow-glow" style="color: var(--color-accent);">Glimmers</span> & <span class="shadow-glow" style="color: var(--color-accent);">Goods</span>
-                </h1>
-                
-                <div class="victorian-divider">◈ ◆ ◈</div>
-                
-                <p class="text-2xl sm:text-3xl font-light max-w-3xl mx-auto opacity-90 leading-relaxed">
-                    Where Victorian elegance meets homemade enchantment. Guided by Shaydow, our black American Shorthair, we craft artisanal goods and capture moments of light.
-                </p>
-                
-                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mt-10">
-                    <a href="#goods" class="inline-block px-10 py-4 text-xl font-semibold rounded-sm cta-button" style="background-color: var(--color-accent); color: var(--color-primary);">
-                        Explore Our Goods
-                    </a>
-                    <a href="#glimmers" class="inline-block px-10 py-4 text-xl font-semibold rounded-sm cta-button" style="background-color: transparent; color: var(--color-accent);">
-                        View Glimmers Gallery
-                    </a>
-                </div>
-            </div>
-        </section>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=600" class="rounded-t-xl h-56 w-full object-cover">
+        <div class="p-6">
+          <h3 class="text-2xl text-[var(--jam)]">Shaydow’s Cookies</h3>
+          <p class="mt-2">Classic chocolate chip, sea salt.</p>
+          <p class="text-xl mt-4 font-semibold">$15</p>
+          <button class="cta w-full mt-4">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <!-- 2. Featured Items for Sale Section -->
-        <section id="featured" class="py-24 px-4 sm:px-6 lg:px-8" style="background-color: var(--color-secondary);">
-            <div class="max-w-7xl mx-auto">
-                <div class="text-center mb-20">
-                    <h2 class="text-6xl font-bold mb-6" style="color: var(--color-accent);">Featured This Week</h2>
-                    <div class="victorian-divider">◈ ◆ ◈</div>
-                    <p class="text-2xl opacity-80 mt-6">Handcrafted with Victorian sensibility and modern intention</p>
-                </div>
+<!-- GLIMMERS -->
+<section id="glimmers" class="py-24 px-6 bg-[var(--forest)] text-[var(--cream)]">
+  <div class="max-w-6xl mx-auto text-center">
+    <h2 class="text-6xl mb-4">Glimmers</h2>
+    <div class="divider">◈ ◆ ◈</div>
+    <p class="text-2xl max-w-3xl mx-auto opacity-90">
+      Glimmers are the opposite of triggers — small moments that remind us
+      we are safe, present, and alive.
+    </p>
 
-                <!-- Featured Items Grid -->
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                    
-                    <!-- Featured Item 1: Wildberry Jam -->
-                    <div class="product-card-bg rounded-sm overflow-hidden shadow-glow product-card">
-                        <div class="grid md:grid-cols-2 gap-0">
-                            <img src="https://images.unsplash.com/photo-1599785209707-a456fc1337bb?w=600&h=600&fit=crop" alt="Wildberry Jam" class="w-full h-full object-cover">
-                            <div class="p-8 flex flex-col justify-center space-y-4">
-                                <h3 class="text-3xl font-bold" style="color: var(--color-accent);">Midnight Wildberry Preserve</h3>
-                                <p class="text-lg text-gray-300 leading-relaxed">Handpicked berries gathered under moonlight, simmered with organic cane sugar. Each batch overseen by Shaydow herself for quality assurance.</p>
-                                <div class="space-y-2 text-sm">
-                                    <p class="text-gray-400">✦ Small batch (12 jars per week)</p>
-                                    <p class="text-gray-400">✦ Victorian-style wax seal</p>
-                                    <p class="text-gray-400">✦ No preservatives</p>
-                                    <p class="text-gray-400">✦ 8 oz glass apothecary jar</p>
-                                </div>
-                                <p class="text-4xl font-bold pt-4" style="color: var(--color-accent);">$12.00</p>
-                                <button class="w-full py-3 rounded-sm text-lg font-semibold cta-button" style="background-color: var(--color-accent); color: var(--color-primary);">Add to Cart</button>
-                            </div>
-                        </div>
-                    </div>
+    <div class="grid md:grid-cols-3 gap-8 mt-16">
+      <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=800" class="rounded-xl shadow-lg">
+      <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=800" class="rounded-xl shadow-lg">
+      <img src="https://images.unsplash.com/photo-1529778873920-4da4926a72c2?w=800" class="rounded-xl shadow-lg">
+    </div>
+  </div>
+</section>
 
-                    <!-- Featured Item 2: Brownie Box -->
-                    <div class="product-card-bg rounded-sm overflow-hidden shadow-glow product-card">
-                        <div class="grid md:grid-cols-2 gap-0">
-                            <img src="https://images.unsplash.com/photo-1607920591413-4ec007e70023?w=600&h=600&fit=crop" alt="Fudge Brownies" class="w-full h-full object-cover">
-                            <div class="p-8 flex flex-col justify-center space-y-4">
-                                <h3 class="text-3xl font-bold" style="color: var(--color-accent);">Victorian Velvet Brownies</h3>
-                                <p class="text-lg text-gray-300 leading-relaxed">Rich, decadent brownies made with premium dark chocolate and a touch of espresso. A recipe passed down through generations.</p>
-                                <div class="space-y-2 text-sm">
-                                    <p class="text-gray-400">✦ Box of 6 generous portions</p>
-                                    <p class="text-gray-400">✦ Optional walnuts</p>
-                                    <p class="text-gray-400">✦ Baked fresh to order</p>
-                                    <p class="text-gray-400">✦ Packaged in vintage-style box</p>
-                                </div>
-                                <p class="text-4xl font-bold pt-4" style="color: var(--color-accent);">$18.00</p>
-                                <button class="w-full py-3 rounded-sm text-lg font-semibold cta-button" style="background-color: var(--color-accent); color: var(--color-primary);">Add to Cart</button>
-                            </div>
-                        </div>
-                    </div>
+<!-- ABOUT -->
+<section id="about" class="py-24 px-6 text-center">
+  <div class="max-w-3xl mx-auto">
+    <h2 class="text-6xl text-[var(--jam)] mb-4">Our Story</h2>
+    <div class="divider">◈ ◆ ◈</div>
+    <p class="text-xl leading-relaxed opacity-80">
+      Shaydow’s Glimmers & Goods was born from grief, love, and the quiet
+      rituals that keep us grounded — baking, noticing light, creating beauty
+      in small ways. Everything here is made slowly, lovingly, and in honor
+      of a black American Shorthair who taught me how to notice joy.
+    </p>
+  </div>
+</section>
 
-                </div>
-            </div>
-        </section>
+<footer class="py-6 text-center text-sm opacity-60">
+  © Shaydow’s Glimmers & Goods
+</footer>
 
-        <!-- 3. Product Showcase Section -->
-        <section id="goods" class="py-24 px-4 sm:px-6 lg:px-8">
-            <div class="max-w-7xl mx-auto text-center">
-                <h2 class="text-6xl font-bold mb-6" style="color: var(--color-accent);">Our Goods</h2>
-                <div class="victorian-divider">◈ ◆ ◈</div>
-                <p class="text-2xl opacity-80 mb-16 mt-6">Every item crafted with intention, under Shaydow's watchful eye</p>
-
-                <!-- Product Grid -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                    
-                    <!-- Product Card 1: Honey -->
-                    <div class="product-card product-card-bg rounded-sm overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1587049352846-4a222e784d38?w=400&h=300&fit=crop" alt="Raw Honey" class="w-full h-56 object-cover">
-                        <div class="p-6 space-y-3">
-                            <h3 class="text-2xl font-semibold" style="color: var(--color-accent);">Enchanted Honey</h3>
-                            <p class="text-base text-gray-300">Raw, unfiltered honey from local apiaries. Liquid gold in an apothecary jar.</p>
-                            <p class="text-3xl font-bold mt-2" style="color: var(--color-accent);">$14.00</p>
-                            <button class="w-full mt-4 py-2 rounded-sm text-base font-medium cta-button" style="background-color: var(--color-accent); color: var(--color-primary);">Add to Cart</button>
-                        </div>
-                    </div>
-
-                    <!-- Product Card 2: Cookies -->
-                    <div class="product-card product-card-bg rounded-sm overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=400&h=300&fit=crop" alt="Chocolate Chip Cookies" class="w-full h-56 object-cover">
-                        <div class="p-6 space-y-3">
-                            <h3 class="text-2xl font-semibold" style="color: var(--color-accent);">Shaydow's Cookies</h3>
-                            <p class="text-base text-gray-300">Classic chocolate chip with sea salt. Shaydow-approved. Dozen per box.</p>
-                            <p class="text-3xl font-bold mt-2" style="color: var(--color-accent);">$15.00</p>
-                            <button class="w-full mt-4 py-2 rounded-sm text-base font-medium cta-button" style="background-color: var(--color-accent); color: var(--color-primary);">Add to Cart</button>
-                        </div>
-                    </div>
-
-                    <!-- Product Card 3: Herbal Oil -->
-                    <div class="product-card product-card-bg rounded-sm overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=400&h=300&fit=crop" alt="Herbal Infused Oil" class="w-full h-56 object-cover">
-                        <div class="p-6 space-y-3">
-                            <h3 class="text-2xl font-semibold" style="color: var(--color-accent);">Victorian Garden Oil</h3>
-                            <p class="text-base text-gray-300">Olive oil infused with rosemary, thyme, and garlic. For refined palates.</p>
-                            <p class="text-3xl font-bold mt-2" style="color: var(--color-accent);">$16.50</p>
-                            <button class="w-full mt-4 py-2 rounded-sm text-base font-medium cta-button" style="background-color: var(--color-accent); color: var(--color-primary);">Add to Cart</button>
-                        </div>
-                    </div>
-
-                    <!-- Product Card 4: Apple Pie -->
-                    <div class="product-card product-card-bg rounded-sm overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1535920527002-b35e96722eb9?w=400&h=300&fit=crop" alt="Homemade Apple Pie" class="w-full h-56 object-cover">
-                        <div class="p-6 space-y-3">
-                            <h3 class="text-2xl font-semibold" style="color: var(--color-accent);">Heirloom Apple Pie</h3>
-                            <p class="text-base text-gray-300">Traditional apple pie with cinnamon and flaky butter crust. Made to order.</p>
-                            <p class="text-3xl font-bold mt-2" style="color: var(--color-accent);">$28.00</p>
-                            <button class="w-full mt-4 py-2 rounded-sm text-base font-medium cta-button" style="background-color: var(--color-accent); color: var(--color-primary);">Add to Cart</button>
-                        </div>
-                    </div>
-
-                    <!-- Product Card 5: Strawberry Jam -->
-                    <div class="product-card product-card-bg rounded-sm overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1619361266747-c7e0c79a0dcd?w=400&h=300&fit=crop" alt="Strawberry Jam" class="w-full h-56 object-cover">
-                        <div class="p-6 space-y-3">
-                            <h3 class="text-2xl font-semibold" style="color: var(--color-accent);">Crimson Preserve</h3>
-                            <p class="text-base text-gray-300">Sweet strawberry preserve from organic berries. Limited batches available.</p>
-                            <p class="text-3xl font-bold mt-2" style="color: var(--color-accent);">$11.00</p>
-                            <button class="w-full mt-4 py-2 rounded-sm text-base font-medium cta-button" style="background-color: var(--color-accent); color: var(--color-primary);">Add to Cart</button>
-                        </div>
-                    </div>
-
-                    <!-- Product Card 6: Oatmeal Cookies -->
-                    <div class="product-card product-card-bg rounded-sm overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=400&h=300&fit=crop" alt="Oatmeal Cookies" class="w-full h-56 object-cover">
-                        <div class="p-6 space-y-3">
-                            <h3 class="text-2xl font-semibold" style="color: var(--color-accent);">Parlour Oatmeal Biscuits</h3>
-                            <p class="text-base text-gray-300">Hearty oatmeal cookies with raisins and nutmeg. Perfect for tea time.</p>
-                            <p class="text-3xl font-bold mt-2" style="color: var(--color-accent);">$14.00</p>
-                            <button class="w-full mt-4 py-2 rounded-sm text-base font-medium cta-button" style="background-color: var(--color-accent); color: var(--color-primary);">Add to Cart</button>
-                        </div>
-                    </div>
-
-                    <!-- Product Card 7: Lemon Curd -->
-                    <div class="product-card product-card-bg rounded-sm overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1605807646983-377bc5a76493?w=400&h=300&fit=crop" alt="Lemon Curd" class="w-full h-56 object-cover">
-                        <div class="p-6 space-y-3">
-                            <h3 class="text-2xl font-semibold" style="color: var(--color-accent);">Citrus Curd</h3>
-                            <p class="text-base text-gray-300">Tangy, creamy lemon curd. Exquisite on toast, pastries, or by the spoon.</p>
-                            <p class="text-3xl font-bold mt-2" style="color: var(--color-accent);">$13.00</p>
-                            <button class="w-full mt-4 py-2 rounded-sm text-base font-medium cta-button" style="background-color: var(--color-accent); color: var(--color-primary);">Add to Cart</button>
-                        </div>
-                    </div>
-
-                    <!-- Product Card 8: Pecan Pie -->
-                    <div class="product-card product-card-bg rounded-sm overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1587241321921-91ece0707ea2?w=400&h=300&fit=crop" alt="Pecan Pie" class="w-full h-56 object-cover">
-                        <div class="p-6 space-y-3">
-                            <h3 class="text-2xl font-semibold" style="color: var(--color-accent);">Gilded Pecan Pie</h3>
-                            <p class="text-base text-gray-300">Rich pecan pie with maple syrup and buttery crust. A refined indulgence.</p>
-                            <p class="text-3xl font-bold mt-2" style="color: var(--color-accent);">$30.00</p>
-                            <button class="w-full mt-4 py-2 rounded-sm text-base font-medium cta-button" style="background-color: var(--color-accent); color: var(--color-primary);">Add to Cart</button>
-                        </div>
-                    </div>
-
-                </div>
-                
-                <div class="mt-20">
-                    <div class="victorian-divider">◈ ◆ ◈</div>
-                    <a href="#" class="inline-block px-10 py-4 mt-8 text-xl font-semibold rounded-sm cta-button shadow-glow" style="border-color: var(--color-accent); color: var(--color-accent); background: transparent;">
-                        View Complete Collection
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- 4. Glimmers Photography Gallery Section -->
-        <section id="glimmers" class="py-24 px-4 sm:px-6 lg:px-8" style="background-color: var(--color-secondary);">
-            <div class="max-w-7xl mx-auto">
-                <div class="text-center mb-20">
-                    <h2 class="text-6xl font-bold mb-6" style="color: var(--color-accent);">Glimmers</h2>
-                    <div class="victorian-divider">◈ ◆ ◈</div>
-                    <p class="text-2xl opacity-80 mt-6 max-w-3xl mx-auto leading-relaxed">
-                        The opposite of triggers—moments of light, beauty, and peace. Photography that captures what heals, what soothes, what brings us back to ourselves.
-                    </p>
-                    <p class="text-lg opacity-70 mt-4 italic">
-                        "In the darkness, we find the glimmers that guide us home."
-                    </p>
-                </div>
-
-                <!-- Slideshow Gallery -->
-                <div class="mb-24">
-                    <h3 class="text-4xl font-semibold text-center mb-10" style="color: var(--color-accent);">Featured Glimmers</h3>
-                    <div class="max-w-5xl mx-auto">
-                        <!-- Main Slideshow Container -->
-                        <div class="relative rounded-sm overflow-hidden shadow-glow" style="background-color: var(--color-primary); border: 2px solid var(--color-accent);">
-                            <!-- Slide 1: Nature -->
-                            <div class="gallery-slide active">
-                                <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=1000&h=600&fit=crop" alt="Nature Glimmer" class="w-full h-[500px] object-cover">
-                                <div class="p-8 text-center">
-                                    <h4 class="text-3xl font-bold mb-3" style="color: var(--color-accent);">Morning Mist</h4>
-                                    <p class="text-xl text-gray-300 leading-relaxed">When the world is quiet and new, possibilities emerge through the fog.</p>
-                                </div>
-                            </div>
-                            <!-- Slide 2: Cat -->
-                            <div class="gallery-slide">
-                                <img src="https://images.unsplash.com/photo-1529778873920-4da4926a72c2?w=1000&h=600&fit=crop" alt="Shaydow Portrait" class="w-full h-[500px] object-cover">
-                                <div class="p-8 text-center">
-                                    <h4 class="text-3xl font-bold mb-3" style="color: var(--color-accent);">Shaydow's Gaze</h4>
-                                    <p class="text-xl text-gray-300 leading-relaxed">Our American Shorthair muse, keeper of secrets and guardian of glimmers.</p>
-                                </div>
-                            </div>
+</body>
+</html>
