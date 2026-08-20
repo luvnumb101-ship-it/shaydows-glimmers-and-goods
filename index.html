@@ -14,15 +14,15 @@
   <style>
     /* Color Palette - Darker Theme */
     :root {
-      --color-forest-green: #1a2419; /* Darker Forest Green */
-      --color-plum: #5a3952; /* Plum/Shadow */
-      --color-inky-blue: #2a3438; /* Darker Inky Blue */
-      --color-sage-green: #4a5240; /* Darker Sage Green */
-      --color-rust: #6b3f30; /* Darker Rust */
-      --color-ochre: #8b6b2a; /* Darker Ochre */
-      --color-mushroom: #4d4338; /* Darker Mushroom */
-      --color-cream: #d4c9b0; /* Warm Cream */
-      --color-deep-blue: #1a2328; /* Darker Deep Blue */
+      --color-forest-green: #1a2419;
+      --color-plum: #5a3952;
+      --color-inky-blue: #2a3438;
+      --color-sage-green: #4a5240;
+      --color-rust: #6b3f30;
+      --color-ochre: #8b6b2a;
+      --color-mushroom: #4d4338;
+      --color-cream: #d4c9b0;
+      --color-deep-blue: #1a2328;
       --color-text-light: #e8e4db;
       --color-primary: #0f0d0a;
       --color-secondary: #1a1410;
@@ -85,7 +85,7 @@
       background-color: rgba(26, 20, 16, 0.9);
     }
 
-    /* Hero Section Text Enhancement - Subtle Approach */
+    /* Hero Section Text Enhancement */
     .hero-title-main {
       text-shadow: 
         2px 2px 8px rgba(0, 0, 0, 0.95),
@@ -149,32 +149,6 @@
       border: 2px solid var(--color-plum);
     }
 
-    /* Grid Gallery Styles */
-    .gallery-grid-item {
-      position: relative;
-      overflow: hidden;
-      cursor: pointer;
-    }
-    .gallery-grid-item img {
-      transition: transform 0.3s ease;
-    }
-    .gallery-grid-item:hover img {
-      transform: scale(1.1);
-    }
-    .gallery-overlay {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: linear-gradient(to top, rgba(15, 13, 10, 0.95), transparent);
-      padding: 1rem;
-      transform: translateY(100%);
-      transition: transform 0.3s ease;
-    }
-    .gallery-grid-item:hover .gallery-overlay {
-      transform: translateY(0);
-    }
-
     /* Decorative borders and ornaments */
     .ornate-border {
       border: 2px solid var(--color-plum);
@@ -204,7 +178,6 @@
       transform: translateX(-50%);
     }
 
-    /* Glimmers section styling */
     .glimmer-card {
       background: linear-gradient(135deg, rgba(90, 57, 82, 0.8), rgba(74, 82, 64, 0.8));
       border: 1px solid var(--color-plum);
@@ -216,7 +189,6 @@
       box-shadow: 0 8px 24px rgba(139, 107, 42, 0.4);
     }
 
-    /* Victorian-inspired dividers */
     .divider {
       display: flex;
       align-items: center;
@@ -249,7 +221,6 @@
       <div class="flex justify-between items-center h-20">
         <!-- Logo and Title -->
         <a href="#" class="flex items-center gap-4">
-          <!-- FIXED LOGO: uses your uploaded JPG file -->
           <img
             src="./Screenshot_20250924_161332_Messenger.jpg"
             alt="Shaydow's Logo"
@@ -298,15 +269,9 @@
   </header>
 
   <main>
-    <!-- 1. Hero Section - Subtle Text Enhancement -->
-    <section id="home" class="relative overflow-hidden flex items-center justify-center min-h-[85vh] text-center p-8"
-      style="
-        background: url('Website_Files/IMG_9700.JPG') center center / cover no-repeat;
-      "
-    >
-      <!-- Very subtle overlay to slightly darken background -->
+    <!-- 1. Hero Section -->
+    <section id="home" class="relative overflow-hidden flex items-center justify-center min-h-[85vh] text-center p-8" style="background: url('Website_Files/IMG_9700.JPG') center center / cover no-repeat;">
       <div class="absolute inset-0 hero-overlay"></div>
-
       <div class="relative max-w-4xl z-10 space-y-6">
         <h1 class="text-5xl sm:text-7xl font-extrabold tracking-tight leading-tight">
           <span class="elegant-script text-6xl sm:text-8xl block mb-4 hero-title-main">Shaydow's</span>
@@ -332,7 +297,7 @@
       </div>
     </section>
 
-    <!-- 2. Glimmers Photography Section - NOW WITH IMAGE BACKGROUND -->
+    <!-- 2. Glimmers Photography Section -->
     <section id="glimmers" class="glimmers-section py-20 px-4 sm:px-6 lg:px-8">
       <div class="max-w-7xl mx-auto">
         <div class="text-center mb-16">
@@ -346,7 +311,6 @@
           </p>
         </div>
 
-        <!-- What Are Glimmers -->
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
           <div class="glimmer-card rounded-2xl p-8 space-y-4">
             <h3 class="text-2xl font-semibold text-center" style="color: #f5d98b;">Mental Health Focus</h3>
@@ -364,14 +328,12 @@
           </div>
         </div>
 
-        <!-- Photography Services -->
         <div class="ornate-border p-12 mb-16" style="background-color: rgba(26, 20, 16, 0.85);">
           <h3 class="text-4xl font-bold text-center mb-12" style="color: #f5d98b;">
             <span class="cursive-text">Photography Services</span>
           </h3>
 
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <!-- Service 1 -->
             <div class="space-y-4 p-6 rounded-xl" style="background: linear-gradient(135deg, rgba(90, 57, 82, 0.6), rgba(26, 36, 25, 0.6)); border: 1px solid var(--color-plum);">
               <h4 class="text-2xl font-semibold cursive-text text-center" style="color: #d4a5c5;">Fantasy Photoshoots</h4>
               <p class="text-lg leading-relaxed" style="color: #ffffff;">Step into an enchanted world where imagination comes alive. Perfect for those who dream of fairy tales, mystical forests, and ethereal moments. Bring your fantasy character to life or let us craft a magical narrative together.</p>
@@ -383,7 +345,6 @@
               </ul>
             </div>
 
-            <!-- Service 2 -->
             <div class="space-y-4 p-6 rounded-xl" style="background: linear-gradient(135deg, rgba(74, 82, 64, 0.6), rgba(107, 63, 48, 0.6)); border: 1px solid var(--color-sage-green);">
               <h4 class="text-2xl font-semibold cursive-text text-center" style="color: #c5d9b8;">Family Photoshoots</h4>
               <p class="text-lg leading-relaxed" style="color: #ffffff;">Capture the warmth and connection of your family in comfortable, cozy settings. These sessions focus on authentic moments of love, laughter, and togetherness—the glimmers that make a house a home.</p>
@@ -395,7 +356,6 @@
               </ul>
             </div>
 
-            <!-- Service 3 -->
             <div class="space-y-4 p-6 rounded-xl" style="background: linear-gradient(135deg, rgba(139, 107, 42, 0.6), rgba(77, 67, 56, 0.6)); border: 1px solid var(--color-ochre);">
               <h4 class="text-2xl font-semibold cursive-text text-center" style="color: #f5d98b;">Solo Photoshoots</h4>
               <p class="text-lg leading-relaxed" style="color: #ffffff;">A celebration of you. Whether you're seeking professional portraits, personal glimmers, or simply want to document this moment in your journey, these sessions are designed to make you feel seen, comfortable, and beautiful.</p>
@@ -407,7 +367,6 @@
               </ul>
             </div>
 
-            <!-- Service 4 - NEW POLAROID SERVICE -->
             <div class="space-y-4 p-6 rounded-xl" style="background: linear-gradient(135deg, rgba(42, 52, 56, 0.6), rgba(90, 57, 82, 0.6)); border: 1px solid var(--color-inky-blue);">
               <h4 class="text-2xl font-semibold cursive-text text-center" style="color: #9bb5c4;">Polaroid Photos for Events</h4>
               <p class="text-lg leading-relaxed" style="color: #ffffff;">Instant memories that guests can take home! Perfect for weddings, parties, gatherings, and celebrations. Each shot develops before your eyes, creating tangible keepsakes filled with spontaneous joy and authentic moments.</p>
@@ -420,6 +379,7 @@
             </div>
           </div>
 
+          <!-- FIXED SINGLE BOOK SESSION BUTTON -->
           <div class="text-center mt-12">
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSe4cNxcjjGMQozuXVAHCs9FTj_yTyJYnJb0B8OfcP9TupMOTg/viewform?usp=header" target="_blank" class="inline-block px-10 py-4 text-xl font-semibold rounded-full cta-button shadow-glow cursive-text" style="background-color: var(--color-plum); color: var(--color-text-light);">
               Book Your Session
@@ -427,7 +387,6 @@
           </div>
         </div>
 
-        <!-- Aesthetic Inspirations -->
         <div class="text-center">
           <h3 class="text-3xl font-semibold mb-6 cursive-text" style="color: #f5d98b; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);">Aesthetic Inspirations</h3>
           <div class="flex flex-wrap justify-center gap-4">
@@ -456,15 +415,14 @@
 
         <!-- Featured Goods -->
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
-          <!-- Featured Item 1 -->
           <div class="product-card-bg rounded-2xl overflow-hidden shadow-glow">
             <div class="grid md:grid-cols-2 gap-0">
-              <img src="Website_Files/jaques torres 1.jpg" alt="Wildberry Jam" class="w-full h-full object-cover">
+              <img src="Website_Files/jaques torres 1.jpg" alt="Cookies" class="w-full h-full object-cover">
               <div class="p-8 flex flex-col justify-center space-y-4">
                 <h3 class="text-3xl font-bold cursive-text" style="color: var(--color-plum);">Jaques Torres Chocolate Chip Cookie</h3>
                 <p class="text-lg leading-relaxed" style="color: var(--color-cream);">World famous recipe, locally made</p>
                 <div class="space-y-2 text-sm cursive-text" style="color: var(--color-sage-green);">
-                  <p>✦ Box of 12  - $24.00 </p>
+                  <p>✦ Box of 12 - $24.00 </p>
                   <p>✦ Box of 6 - $14.00 </p>
                 </div>
                 <p class="text-4xl font-bold" style="color: var(--color-ochre);">$3.00</p>
@@ -472,7 +430,6 @@
             </div>
           </div>
 
-          <!-- Featured Item 2 -->
           <div class="product-card-bg rounded-2xl overflow-hidden shadow-glow">
             <div class="grid md:grid-cols-2 gap-0">
               <img src="Website_Files/brownie.jpg" alt="Fudge Brownies" class="w-full h-full object-cover">
@@ -491,39 +448,39 @@
           </div>
         </div>
 
-        <!-- All Goods Grid -->
+        <!-- All Goods Grid (No Add To Cart Buttons) -->
         <h3 class="text-4xl font-bold text-center mb-12 cursive-text" style="color: var(--color-ochre);">Our Complete Collection</h3>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
           <div class="product-card product-card-bg rounded-xl overflow-hidden">
-            <img src="Website_Files/Carrot cake 1.jpg" alt="Raw Honey" class="w-full h-56 object-cover">
+            <img src="Website_Files/Carrot cake 1.jpg" alt="Carrot Cake" class="w-full h-56 object-cover">
             <div class="p-6 space-y-2">
               <h3 class="text-2xl font-semibold cursive-text" style="color: var(--color-ochre);">Carrot Cake</h3>
-              <p class="text-base leading-relaxed" style="color: var(--color-cream);"> Three layer carrot cake, made with freshly grated carrots.</p>
+              <p class="text-base leading-relaxed" style="color: var(--color-cream);">Three layer carrot cake, made with freshly grated carrots.</p>
               <p class="text-3xl font-bold mt-2" style="color: var(--color-ochre);">$14.00</p>
             </div>
           </div>
 
           <div class="product-card product-card-bg rounded-xl overflow-hidden">
-            <img src="Website_Files/original_5851ef6e-d31e-4040-85a1-7a9e19c3f148_Screenshot_20251231_000313_Photos.jpg" alt="Cookies" class="w-full h-56 object-cover">
+            <img src="Website_Files/original_5851ef6e-d31e-4040-85a1-7a9e19c3f148_Screenshot_20251231_000313_Photos.jpg" alt="Mini Apple Pies" class="w-full h-56 object-cover">
             <div class="p-6 space-y-2">
-              <h3 class="text-2xl font-semibold cursive-text" style="color: var(--color-ochre);"> Mini Apple Pies </h3>
+              <h3 class="text-2xl font-semibold cursive-text" style="color: var(--color-ochre);">Mini Apple Pies</h3>
               <p class="text-base leading-relaxed" style="color: var(--color-cream);">Would one count this as a single serving?</p>
               <p class="text-3xl font-bold mt-2" style="color: var(--color-ochre);">$3.00</p>
             </div>
           </div>
 
           <div class="product-card product-card-bg rounded-xl overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=400&h=300&fit=crop" alt="Black Garlic Oil - Mayu" class="w-full h-56 object-cover">
+            <img src="https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=400&h=300&fit=crop" alt="Black Garlic Oil" class="w-full h-56 object-cover">
             <div class="p-6 space-y-2">
-              <h3 class="text-2xl font-semibold cursive-text" style="color: var(--color-ochre);">Black Garlic Oil - Mayu </h3>
-              <p class="text-base leading-relaxed" style="color: var(--color-cream);"> a rich, smoky, charred garlic oil, a popular ramen topping, made by slowly frying garlic in oil until black and then blending it smooth, often with sesame oil, to add depth and a complex flavor to dishes.</p>
+              <h3 class="text-2xl font-semibold cursive-text" style="color: var(--color-ochre);">Black Garlic Oil - Mayu</h3>
+              <p class="text-base leading-relaxed" style="color: var(--color-cream);">A rich, smoky, charred garlic oil, a popular ramen topping, made by slowly frying garlic in oil until black and then blending it smooth.</p>
               <p class="text-3xl font-bold mt-2" style="color: var(--color-ochre);">$6.00</p>
             </div>
           </div>
-          
+
           <div class="product-card product-card-bg rounded-xl overflow-hidden">
-            <img src="Website_Files/chocolate chip banana bread 1.jpg" alt="Lemon Curd" class="w-full h-56 object-cover">
+            <img src="Website_Files/chocolate chip banana bread 1.jpg" alt="Banana Bread" class="w-full h-56 object-cover">
             <div class="p-6 space-y-2">
               <h3 class="text-2xl font-semibold cursive-text" style="color: var(--color-ochre);">Chocolate chip banana bread</h3>
               <p class="text-base leading-relaxed" style="color: var(--color-cream);">Chocolatey, banana, bread. Delightful with or without butter, warmed or cool.</p>
@@ -532,17 +489,16 @@
           </div>
         </div>
 
-        <!-- Order Form Button Section -->
+        <!-- ORDER FORM BUTTON AT BOTTOM OF GOODS -->
         <div class="text-center mt-12">
           <a href="https://docs.google.com/forms/d/1abU4FuHWUuT84zzI1-K_3LY0dK8vUU3WdvA-dMRusBI/edit" target="_blank" class="inline-block px-10 py-4 text-xl font-semibold rounded-full cta-button shadow-glow cursive-text" style="background-color: var(--color-plum); color: var(--color-text-light);">
             Place an Order
           </a>
         </div>
-
       </div>
     </section>
 
-    <!-- 4. Photo Gallery Section -->
+    <!-- 4. Photo Gallery Section (RESTORED FULLY) -->
     <section id="gallery" class="py-20 px-4 sm:px-6 lg:px-8" style="background: linear-gradient(to bottom, var(--color-primary), var(--color-deep-blue));">
       <div class="max-w-7xl mx-auto">
         <div class="text-center mb-16">
@@ -568,30 +524,30 @@
               </div>
               <!-- Slide 2 -->
               <div class="gallery-slide">
-                <img src="Website_Files/pumpkin.jpg" alt="Baking" class="w-full h-96 object-cover">
+                <img src="Website_Files/pumpkin.jpg" alt="Pumpkin Head" class="w-full h-96 object-cover">
                 <div class="p-6 text-center">
                   <h4 class="text-2xl font-bold mb-2 cursive-text" style="color: var(--color-ochre);">Pumpkin Head Party</h4>
-                  <p class="text-lg cursive-text" style="color: var(--color-cream);">Gather yourself or some freinds and have a pumpkin head photoshoot!</p>
+                  <p class="text-lg cursive-text" style="color: var(--color-cream);">Gather yourself or some friends and have a pumpkin head photoshoot!</p>
                 </div>
               </div>
               <!-- Slide 3 -->
               <div class="gallery-slide">
-                <img src="Website_Files/503646957_24099380573001100_5881316749792158021_n.jpg" alt="Garden" class="w-full h-96 object-cover">
+                <img src="Website_Files/503646957_24099380573001100_5881316749792158021_n.jpg" alt="Fantasy photoshoot" class="w-full h-96 object-cover">
                 <div class="p-6 text-center">
-                  <h4 class="text-2xl font-bold mb-2 cursive-text" style="color: var(--color-ochre);">Elves, Knights, Faries, Oh My!</h4>
-                  <p class="text-lg cursive-text" style="color: var(--color-cream);"> Become a real life avatar and deck yourself up to be the perfect character. Plus 10 Charisma. </p>
+                  <h4 class="text-2xl font-bold mb-2 cursive-text" style="color: var(--color-ochre);">Elves, Knights, Fairies, Oh My!</h4>
+                  <p class="text-lg cursive-text" style="color: var(--color-cream);">Become a real life avatar and deck yourself up to be the perfect character. Plus 10 Charisma.</p>
                 </div>
               </div>
               <!-- Slide 4 -->
               <div class="gallery-slide">
-                <img src="Website_Files/Witches.jpg" alt="Jars" class="w-full h-96 object-cover">
+                <img src="Website_Files/Witches.jpg" alt="Witches photoshoot" class="w-full h-96 object-cover">
                 <div class="p-6 text-center">
                   <h4 class="text-2xl font-bold mb-2 cursive-text" style="color: var(--color-ochre);">Witch, Please</h4>
-                  <p class="text-lg cursive-text" style="color: var(--color-cream);"> Fully emerse yourself in the experience and have fun!</p>
+                  <p class="text-lg cursive-text" style="color: var(--color-cream);">Fully immerse yourself in the experience and have fun!</p>
                 </div>
               </div>
 
-              <!-- Navigation -->
+              <!-- Navigation Controls -->
               <button onclick="changeSlide(-1)" class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-60 hover:bg-opacity-80 text-white p-3 rounded-full transition">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
@@ -603,10 +559,93 @@
                 </svg>
               </button>
             </div>
+
+            <!-- Slide Thumbnails -->
+            <div class="flex justify-center gap-4 mt-6">
+              <img src="Website_Files/PXL_20220529_220255261.PORTRAIT.jpg" onclick="goToSlide(0)" class="gallery-thumbnail w-20 h-20 object-cover rounded-lg active" alt="Thumb 1">
+              <img src="Website_Files/pumpkin.jpg" onclick="goToSlide(1)" class="gallery-thumbnail w-20 h-20 object-cover rounded-lg" alt="Thumb 2">
+              <img src="Website_Files/503646957_24099380573001100_5881316749792158021_n.jpg" onclick="goToSlide(2)" class="gallery-thumbnail w-20 h-20 object-cover rounded-lg" alt="Thumb 3">
+              <img src="Website_Files/Witches.jpg" onclick="goToSlide(3)" class="gallery-thumbnail w-20 h-20 object-cover rounded-lg" alt="Thumb 4">
+            </div>
           </div>
         </div>
       </div>
     </section>
+
+    <!-- 5. Our Story Section -->
+    <section id="about" class="py-20 px-4 sm:px-6 lg:px-8" style="background-color: var(--color-secondary);">
+      <div class="max-w-4xl mx-auto text-center space-y-8">
+        <h2 class="text-5xl font-bold" style="color: var(--color-ochre);">Our Story</h2>
+        <div class="divider max-w-md mx-auto">
+          <span style="color: var(--color-plum);">✦</span>
+        </div>
+        <p class="text-xl cursive-text leading-relaxed" style="color: var(--color-cream);">
+          Shaydow's Glimmers &amp; Goods was born from a desire to cultivate warmth, peace, and beauty in everyday life. Named in honor of a cherished companion, our mission is to create tangible and visual reminders of safety, comfort, and quiet joy.
+        </p>
+      </div>
+    </section>
+
+    <!-- 6. Contact Section -->
+    <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8" style="background-color: var(--color-primary);">
+      <div class="max-w-4xl mx-auto text-center space-y-8">
+        <h2 class="text-5xl font-bold" style="color: var(--color-ochre);">Connect With Us</h2>
+        <p class="text-xl cursive-text" style="color: var(--color-cream);">Have questions or custom requests? We'd love to hear from you.</p>
+        <div class="divider max-w-md mx-auto">
+          <span style="color: var(--color-plum);">✦</span>
+        </div>
+      </div>
+    </section>
   </main>
+
+  <!-- Footer -->
+  <footer class="py-8 text-center text-sm" style="background-color: var(--color-primary); border-top: 1px solid var(--color-plum); color: var(--color-cream);">
+    <p>&copy; Shaydow's Glimmers &amp; Goods. All rights reserved.</p>
+  </footer>
+
+  <!-- Interactive JavaScript for Mobile Menu & Gallery Slideshow -->
+  <script>
+    // Mobile Menu Toggle
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    if (mobileMenuButton && mobileMenu) {
+      mobileMenuButton.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+    }
+
+    // Slideshow Functionality
+    let currentSlideIndex = 0;
+    const slides = document.querySelectorAll('.gallery-slide');
+    const thumbnails = document.querySelectorAll('.gallery-thumbnail');
+
+    function showSlide(index) {
+      if (slides.length === 0) return;
+      
+      if (index >= slides.length) {
+        currentSlideIndex = 0;
+      } else if (index < 0) {
+        currentSlideIndex = slides.length - 1;
+      } else {
+        currentSlideIndex = index;
+      }
+
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === currentSlideIndex);
+      });
+
+      thumbnails.forEach((thumb, i) => {
+        thumb.classList.toggle('active', i === currentSlideIndex);
+      });
+    }
+
+    function changeSlide(direction) {
+      showSlide(currentSlideIndex + direction);
+    }
+
+    function goToSlide(index) {
+      showSlide(index);
+    }
+  </script>
 </body>
 </html>
